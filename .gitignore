@@ -1,2 +1,5 @@
+web
+.htaccess
 wp-config.php
 wp-content/uploads/*
+wp-content/plugins/velvet-blues-update-urls
