@@ -1,0 +1,12 @@
+$blurAmt: 8px;
+
+.bg-image {
+    background-image: url("../../../../uploads/2021/05/3291_header.jpg");
+    height: 100%;
+    width: 100%;
+    filter: blur($blurAmt);
+    -webkit-filter: blur($blurAmt);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
