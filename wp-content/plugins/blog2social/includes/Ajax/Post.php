@@ -149,7 +149,8 @@ class Ajax_Post {
             if (isset($_POST['postFormat'])) {
                 if ((int) $_POST['postFormat'] == 1) { //Imagepost
                     if (isset($_POST['image_id']) && !empty($_POST['image_id']) && isset($_POST['comment_image']) && !empty($_POST['comment_image'])) {
-                        $data = array('title' => sanitize_text_field($_POST['comment_image']), 'content' => $_POST['comment_image'], 'image_id' => $_POST['image_id'], 'author_id' => B2S_PLUGIN_BLOG_USER_ID);
+                        $title = preg_split('/\n/', $_POST['comment_image']);
+                        $data = array('title' => sanitize_text_field($title[0]), 'content' => $_POST['comment_image'], 'image_id' => $_POST['image_id'], 'author_id' => B2S_PLUGIN_BLOG_USER_ID);
                     } else {
                         echo json_encode(array('result' => false, 'error' => 'NO_DATA'));
                         wp_die();
@@ -163,7 +164,8 @@ class Ajax_Post {
                     }
                 } else {
                     if (isset($_POST['comment_text']) && !empty($_POST['comment_text'])) {
-                        $data = array('title' => sanitize_text_field($_POST['comment_text']), 'content' => $_POST['comment_text'], 'image_id' => $_POST['image_id'], 'author_id' => B2S_PLUGIN_BLOG_USER_ID);
+                        $title = preg_split('/\n/', $_POST['comment_text']);
+                        $data = array('title' => sanitize_text_field($title[0]), 'content' => $_POST['comment_text'], 'image_id' => $_POST['image_id'], 'author_id' => B2S_PLUGIN_BLOG_USER_ID);
                     } else {
                         echo json_encode(array('result' => false, 'error' => 'NO_DATA'));
                         wp_die();
@@ -179,7 +181,7 @@ class Ajax_Post {
                         if (isset($_POST['profile_data_' . $profilId]) && !empty($_POST['profile_data_' . $profilId])) {
                             $networkData = json_decode(base64_decode($_POST['profile_data_' . $profilId]));
                             if ($networkData !== false && is_array($networkData) && !empty($networkData)) {
-                                $notAllowNetwork = array(4, 11, 14, 16);
+                                $notAllowNetwork = array(11);
                                 $tosCrossPosting = unserialize(B2S_PLUGIN_NETWORK_CROSSPOSTING_LIMIT);
                                 $allowNetworkOnlyImage = array(6, 7, 12, 21);
                                 $allowNetworkOnlyLink = array(9, 15);
@@ -188,7 +190,7 @@ class Ajax_Post {
                                 require_once (B2S_PLUGIN_DIR . 'includes/B2S/QuickPost.php');
                                 $quickPost = new B2S_QuickPost($data['content'], $data['title']);
                                 $defaultShareData = array('default_titel' => sanitize_text_field($data['title']),
-                                    'image_url' => (!empty($_POST['image_url'])) ? esc_url(trim(urldecode($_POST['image_url']))) : '',
+                                    'image_url' => (!empty($_POST['image_url'])) ? esc_url(trim(urldecode($_POST['image_url']))) : ((!empty($_POST['link_image_url']) ? esc_url(trim(urldecode($_POST['link_image_url']))) : '')),
                                     'lang' => trim(strtolower(substr(B2S_LANGUAGE, 0, 2))),
                                     'board' => '',
                                     'group' => '',
@@ -210,8 +212,10 @@ class Ajax_Post {
                                             //Filter: image network
                                             if ((int) $_POST['postFormat'] == 0) {
                                                 if (in_array($value->networkId, $allowNetworkOnlyImage)) {
-                                                    array_push($content, array('networkDisplayName' => $value->networkUserName, 'networkAuthId' => $value->networkAuthId, 'networkId' => $value->networkId, 'networkType' => $value->networkType, 'html' => $b2sShipSend->getItemHtml($value->networkId, 'IMAGE_FOR_CURATION')));
-                                                    continue;
+                                                    if(empty($defaultShareData['image_url'])) {
+                                                        array_push($content, array('networkDisplayName' => $value->networkUserName, 'networkAuthId' => $value->networkAuthId, 'networkId' => $value->networkId, 'networkType' => $value->networkType, 'html' => $b2sShipSend->getItemHtml($value->networkId, 'IMAGE_FOR_CURATION')));
+                                                        continue;
+                                                    }
                                                 }
                                             } else if ((int) $_POST['postFormat'] == 1) {
                                                 if (in_array($value->networkId, $allowNetworkOnlyLink)) {
@@ -329,7 +333,8 @@ class Ajax_Post {
             if (isset($_POST['postFormat'])) {
                 if ((int) $_POST['postFormat'] == 1) { //Imagepost
                     if (isset($_POST['image_id']) && !empty($_POST['image_id']) && isset($_POST['comment_image']) && !empty($_POST['comment_image'])) {
-                        $data = array('title' => sanitize_text_field($_POST['comment_image']), 'content' => $_POST['comment_image'], 'image_id' => $_POST['image_id'], 'author_id' => B2S_PLUGIN_BLOG_USER_ID);
+                        $title = preg_split('/\n/', $_POST['comment_image']);
+                        $data = array('title' => sanitize_text_field($title[0]), 'content' => $_POST['comment_image'], 'image_id' => $_POST['image_id'], 'author_id' => B2S_PLUGIN_BLOG_USER_ID);
                         $imgUrl = (isset($_POST['image_url']) && !empty($_POST['image_url'])) ? $_POST['image_url'] : '';
                     } else {
                         echo json_encode(array('result' => false, 'error' => 'NO_DATA'));
@@ -345,7 +350,8 @@ class Ajax_Post {
                     }
                 } else if ((int) $_POST['postFormat'] == 2) {//Textpost
                     if (isset($_POST['comment_text']) && !empty($_POST['comment_text'])) {
-                        $data = array('title' => sanitize_text_field($_POST['comment_text']), 'content' => $_POST['comment_text'], 'author_id' => B2S_PLUGIN_BLOG_USER_ID);
+                        $title = preg_split('/\n/', $_POST['comment_text']);
+                        $data = array('title' => sanitize_text_field($title[0]), 'content' => $_POST['comment_text'], 'author_id' => B2S_PLUGIN_BLOG_USER_ID);
                     } else {
                         echo json_encode(array('result' => false, 'error' => 'NO_DATA'));
                         wp_die();
@@ -376,7 +382,12 @@ class Ajax_Post {
                         $redirect_url .= '&img=' . base64_encode($imgUrl);
                     }
                     if (isset($_POST['postFormat'])) {
-                        $redirect_url .= '&postFormat=' . $_POST['postFormat'];
+                        if($_POST['postFormat'] == '0') {
+                            $redirect_url .= '&postFormat=0';
+                        } else {
+                            $redirect_url .= '&postFormat=1';
+                        }
+                        
                     }
                     echo json_encode(array('result' => true, 'redirect' => $redirect_url));
                     wp_die();
@@ -845,6 +856,18 @@ class Ajax_Post {
                 echo json_encode(array('result' => true));
                 wp_die();
             }
+            
+            if (isset($_POST['user_time_format']) && (int) $_POST['user_time_format'] >= 0) {
+                $user_time_format = 0;
+                if((int) $_POST['user_time_format'] > 0) {
+                    $user_time_format = 1;
+                }
+                $options = new B2S_Options(B2S_PLUGIN_BLOG_USER_ID);
+                $options->_setOption('user_time_format', (int) $user_time_format);
+                echo json_encode(array('result' => true));
+                wp_die();
+            }
+            
             if (isset($_POST['legacy_mode'])) {
                 $options = new B2S_Options(0, 'B2S_PLUGIN_GENERAL_OPTIONS');
                 $options->_setOption('legacy_mode', (int) $_POST['legacy_mode']);
@@ -870,6 +893,7 @@ class Ajax_Post {
             //Auto-Poster A
             $network_auth_id = isset($_POST['b2s-import-auto-post-network-auth-id']) && is_array($_POST['b2s-import-auto-post-network-auth-id']) ? $_POST['b2s-import-auto-post-network-auth-id'] : array();
             $post_type = isset($_POST['b2s-import-auto-post-type-data']) && is_array($_POST['b2s-import-auto-post-type-data']) ? $_POST['b2s-import-auto-post-type-data'] : array();
+            $post_categories = isset($_POST['b2s-import-auto-post-categories-data']) && is_array($_POST['b2s-import-auto-post-categories-data']) ? $_POST['b2s-import-auto-post-categories-data'] : array();
 
             $auto_post_import = array('active' => ((isset($_POST['b2s-import-auto-post']) && (int) $_POST['b2s-import-auto-post'] == 1) ? 1 : 0),
                 'network_auth_id' => $network_auth_id,
@@ -877,7 +901,9 @@ class Ajax_Post {
                 'ship_delay_time' => (int) $_POST['b2s-import-auto-post-time-data'],
                 'post_filter' => ((isset($_POST['b2s-import-auto-post-filter']) && (int) $_POST['b2s-import-auto-post-filter'] == 1) ? 1 : 0),
                 'post_type_state' => ((isset($_POST['b2s-import-auto-post-type-state']) && (int) $_POST['b2s-import-auto-post-type-state'] == 1) ? 1 : 0),
-                'post_type' => $post_type);
+                'post_type' => $post_type,
+                'post_categories_state' => ((isset($_POST['b2s-import-auto-post-categories-state']) && (int) $_POST['b2s-import-auto-post-categories-state'] == 1) ? 1 : 0),
+                'post_categories' => $post_categories);
 
             $options = new B2S_Options(B2S_PLUGIN_BLOG_USER_ID);
             $options->_setOption('auto_post_import', $auto_post_import);
@@ -2325,6 +2351,10 @@ class Ajax_Post {
                             $where .= ((isset($_POST['b2s-re-post-date-state']) && !empty($_POST['b2s-re-post-date-state']) && (int) $_POST['b2s-re-post-date-state'] == 1) ? ' OR ' : ' AND ');
                             $where .= " post_date " . ((isset($_POST['b2s-re-post-date-state']) && !empty($_POST['b2s-re-post-date-state']) && (int) $_POST['b2s-re-post-date-state'] == 1) ? '>' : '<=') . " '" . $end . " 23:59:59') ";
                         }
+                        //only posted x times - Posts (1 post to 1 auth) within 5 minutes counts as posted one time
+                        if (isset($_POST['b2s-re-post-already-planed-active']) && (int) $_POST['b2s-re-post-already-planed-active'] == 1 && isset($_POST['b2s-re-post-already-planed-count']) && (int) $_POST['b2s-re-post-already-planed-count'] >= 0) {
+                            $where .= " AND posts.ID NOT IN (SELECT post_id FROM (SELECT post_id FROM wp_b2s_posts WHERE blog_user_id = " . (int) B2S_PLUGIN_BLOG_USER_ID . " AND publish_date != '0000-00-00 00:00:00' AND publish_error_code = '' AND hide = 0 GROUP BY UNIX_TIMESTAMP(publish_date) DIV 300 ORDER BY `wp_b2s_posts`.`post_id` ASC) AS b2s_post_results GROUP BY post_id HAVING count(*) > ".(int) $_POST['b2s-re-post-already-planed-count'].") ";
+                        }
                         //categories
                         if (isset($_POST['b2s-re-post-categories-active']) && (int) $_POST['b2s-re-post-categories-active'] == 1 && isset($_POST['b2s-re-post-categories-data']) && !empty($_POST['b2s-re-post-categories-data']) && is_array($_POST['b2s-re-post-categories-data'])) {
                             $join .= " LEFT JOIN (SELECT * FROM $wpdb->term_relationships WHERE term_taxonomy_id IN ('" . implode("','", $_POST['b2s-re-post-categories-data']) . "')) AS tr ON tr.object_id = posts.ID";
@@ -2345,7 +2375,6 @@ class Ajax_Post {
                     $postTypeIn = substr($postTypeIn, 0, -1) . ")";
 
                     $sql = "SELECT ID FROM $wpdb->posts as posts " . $join . " WHERE post_status = 'publish' AND post_type IN " . $postTypeIn . " " . $where;
-
                     $sql .= " ORDER BY post_date ASC ";
                     $sql .= " LIMIT " . $limit;
                     $result = $wpdb->get_results($sql);
@@ -2450,6 +2479,8 @@ class Ajax_Post {
                                     } else {
                                         $settings = array('type' => 1, 'bestTimes' => ((!empty($bestTimes)) ? true : false), 'interval' => $interval, 'weekday' => $weekday, 'time' => $timeInput);
                                     }
+                                    $nextPosibleDate = $rePost->getPostDateTime($startDate, $settings);
+                                    $date->setDate(substr($nextPosibleDate, 0, 4), substr($nextPosibleDate, 5, 2), substr($nextPosibleDate, 8, 2));
                                     $rePost->generatePosts($startDate, $settings, $networkData, $selectedTwitterProfile);
                                     $countPosts++;
                                 }

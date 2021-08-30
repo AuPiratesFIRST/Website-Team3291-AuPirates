@@ -107,6 +107,12 @@ jQuery(document).ready(function () {
             } else {
                 if (calEvent.publish_link != "") {
                     window.open(calEvent.publish_link, '_blank');
+                } else {
+                    if(calEvent.errorText != null && calEvent.errorText != "") {
+                        console.log(calEvent.errorText);
+                        jQuery('.b2s-error-text').html(calEvent.errorText);
+                        jQuery('#b2s-show-error-modal').modal('show');
+                    }
                 }
             }
         },
@@ -228,6 +234,8 @@ function showEditSchedCalendarPost(b2s_id, post_id, network_auth_id, network_typ
     if (jQuery('#b2sUserLang').val() == "de") {
         dateFormat = "dd.mm.yyyy";
         language = "de";
+    }
+    if (jQuery('#b2sUserTimeFormat').val() == 0) {
         showMeridian = false;
     }
 

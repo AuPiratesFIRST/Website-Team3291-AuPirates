@@ -38,9 +38,14 @@ class B2S_Util {
     }
 
     public static function getCustomDateFormat($dateTime = '0000-00-00 00:00:00', $lang = 'en', $time = true) {
-        if ($lang == 'de') {
+        $options = new B2S_Options(B2S_PLUGIN_BLOG_USER_ID);
+        $optionUserTimeFormat = $options->_getOption('user_time_format');
+        if($optionUserTimeFormat == false) {
+            $optionUserTimeFormat = ($lang == 'de') ? 0 : 1;
+        }
+        if ($optionUserTimeFormat == 0) {
             $ident = 'd.m.Y ' . (($time) ? 'H:i' : '');
-            return date($ident, strtotime($dateTime)) . (($time) ? ' ' . __('Clock', 'blog2social') : '');
+            return date($ident, strtotime($dateTime)) . (($time && $lang == 'de') ? ' ' . __('clock', 'blog2social') : '');
         } else {
             $ident = 'Y/m/d ' . (($time) ? 'g:i a' : '');
             return date($ident, strtotime($dateTime));
@@ -67,7 +72,20 @@ class B2S_Util {
         if (!empty($url)) {
             $param = array();
             libxml_use_internal_errors(true); // Yeah if you are so worried about using @ with warnings
-            $url = $url . ((parse_url($url, PHP_URL_QUERY) ? '&' : '?') . 'no_cache=1');  //nocache
+            $hasHashtag = strpos($url, '#');
+            if($hasHashtag == false || $hasHashtag <= 0) {
+                $url = $url . ((parse_url($url, PHP_URL_QUERY) ? '&' : '?') . 'no_cache=1');  //nocache
+            } else {
+                $subUrl = explode('#', $url);
+                if(isset($subUrl[0]) && isset($subUrl[1])) {
+                    $url = $subUrl[0] . ((parse_url($subUrl[0], PHP_URL_QUERY) ? '&' : '?') . 'no_cache=1');
+                    for($i = 1; $i < count($subUrl); $i++) {
+                        $url .= '#' . $subUrl[$i];
+                    }
+                } else {
+                    $url = $url . ((parse_url($url, PHP_URL_QUERY) ? '&' : '?') . 'no_cache=1');  //nocache
+                }
+            }
             $html = self::b2sFileGetContents($url, true);
             if (!empty($html) && $html !== false) {
                 //Search rist Parameter

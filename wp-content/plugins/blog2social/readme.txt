@@ -1,11 +1,11 @@
 ===Blog2Social: Social Media Auto Post & Scheduler===
 Contributors: Blog2Social, pr-gateway
 Requires PHP: 5.5.3
-Tags: auto post, auto publish, social media scheduling, social media calendar, social media automation, social media share, auto-publish, scheduling, social media post, social url share, social network share, share tweet, share links, share this, share text posts, share images, share video links, social tools, admin, api, auto share to, autopost, auto-Posting, auto-schedule, auto-schedule social media posts, automatic social sharing plugin, blog marketing, blog2social, blogger, buffer, crossposting, cross-promotion, cross-promoting, bloglovin, bloglovin auto post, facebook, facebook auto post, facebook pages, google auto post, instagram, instagram auto post, jetpack, jetpack sharing, linkedin, linkedin auto post, medium, medium auto post, multiposting, pinterest, re-post, scheduling plugin, social media, social media auto publish, social media button, social media manager, social media plugin, social media publishing, social media scheduling tool, social media sharing, social media tool, social network auto publish, social network icon, social network widget, socialmedia, timing, torial, torial auto post, tumblr, twitter, twitter auto post, xing, xing auto post, xing groups, xing gruppen, xing personal profiles, xing company profiles, xing business pages, xing pages, xing seiten,instagram business, auto post scheduler, repost, social media management, facebook fan page auto post, facebook profile auto post, social auto post, social autoposting, flickr, flickr auto posting, linkedin, linkedin auto posting, linkedin profile, facebook group, facebook gruppen, reddit, reddit auto posting, reddit auto post, social media calendar, editorial calendar, calendar plugin, Social Media Automatisierung, Social Media Management, Kalender, Planungs Kalender, Social Media Kalender, Content Marketing, Revive, Revive posts, Revive old posts, old posts, Reshare, Re-Share, automatically re-post, automatically reshare, auto repost, auto republish, recycle posts, bulk schedule, Google My Business, Google posts, imgur, vk, vkontakte, Vkontakte.ru, vk.com. Telegram, Telegram channels, Telegram groups, share multiple images, image gallery 
+Tags: auto post, auto publish, social media scheduling, social media calendar, social media automation, social media share, auto-publish, scheduling, social media post, social url share, social network share, share tweet, share links, share this, share text posts, share images, share video links, social tools, admin, api, auto share to, autopost, auto-Posting, auto-schedule, auto-schedule social media posts, automatic social sharing plugin, blog marketing, blog2social, blogger, buffer, crossposting, cross-promotion, cross-promoting, bloglovin, bloglovin auto post, facebook, facebook auto post, facebook pages, google auto post, instagram, instagram auto post, jetpack, jetpack sharing, linkedin, linkedin auto post, medium, medium auto post, multiposting, pinterest, re-post, scheduling plugin, social media, social media auto publish, social media button, social media manager, social media plugin, social media publishing, social media scheduling tool, social media sharing, social media tool, social network auto publish, social network icon, social network widget, socialmedia, timing, torial, torial auto post, tumblr, twitter, twitter auto post, xing, xing auto post, xing groups, xing gruppen, xing personal profiles, xing company profiles, xing business pages, xing pages, xing seiten,instagram business, auto post scheduler, repost, social media management, facebook fan page auto post, facebook profile auto post, social auto post, social autoposting, flickr, flickr auto posting, linkedin, linkedin auto posting, linkedin profile, facebook group, facebook gruppen, reddit, reddit auto posting, reddit auto post, social media calendar, editorial calendar, calendar plugin, Social Media Automatisierung, Social Media Management, Kalender, Planungs Kalender, Social Media Kalender, Content Marketing, Revive, Revive posts, Revive old posts, old posts, Reshare, Re-Share, automatically re-post, automatically reshare, auto repost, auto republish, recycle posts, bulk schedule, Google My Business, Google posts, imgur, vk, vkontakte, Vkontakte.ru, vk.com. Telegram, Telegram channels, Telegram groups, share multiple images, image gallery, blogger.com  
 Donate link: https://paypal.me/adenion
 Requires at least: 4.7.0
-Tested up to: 5.7
-Stable tag: 6.7.2
+Tested up to: 5.8
+Stable tag: 6.8.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,12 +13,12 @@ Autopost, schedule and share blog posts and contents on social media, pages & gr
 
 == Description ==
 **Social Media Auto-Posting and Scheduling Plugin for WordPress Sites and Blogs.** 
-Autopost, cross-promote, schedule and automatically share your blog posts to social networks such as **Facebook, Twitter, Google My Business, LinkedIn, XING, Instagram, Pinterest, Imgur, Flickr, Reddit, VK.com, Medium, Tumblr, Torial, Diigo, Bloglovin and Telegram.**
+Autopost, cross-promote, schedule and automatically share your blog posts to social networks such as **Facebook, Twitter, Google My Business, LinkedIn, XING, Instagram, Pinterest, Imgur, Flickr, Reddit, VK.com, Medium, Tumblr, Torial, Diigo, Bloglovin, Telegram and Blogger.com**
 Blog2Social automatically creates social media posts for your content and auto-posts at the best times for each network. Save time and pain of manually sharing and promoting your site on social media.
 
 _Compatible with WooCommerce, Gutenberg Editor, Hummingbird, Bitly, Rebrand.ly, Sniply, WP Automatic Plugin, Page Builder & RSS Importer._
 
-* Version 6.7: Instagram Business Account, Post Templates
+* Version 6.8: Blogger.com, post templates
 
 Download Blog2Social today to make your social media marketing for your WordPress site or blog easier than ever. Blog2Social is a freemium plugin, with a free comprehensive basic version and premium plans offering more advanced features. To ensure compliance with the high quality standards of the new networks’ API rules and community guidelines, some functions of the auto-poster are premium features and not part of the free version. 
 The Blog2Social free version offers you a wide range of features. ([See what’s included in the free version](https://wordpress.org/plugins/blog2social/#faq "Blog2Social Free Features")). 
@@ -42,6 +42,7 @@ To benefit from all the advanced features for automatic sharing and scheduling y
 * **Diigo** - post a bookmark to your account (Free)
 * **Bloglovin** - post to your blog post with canonical-backlinks to your original post (Free)
 * **Telegram** - post to your Telegram groups and Telegram channels (Business)
+* **Blogger.com** - post to your blog post with canonical-backlinks to your original post (Premium)
 
 = Benefits from using Blog2Social =
 
@@ -221,8 +222,14 @@ To get started with the basics of Blog2Social and maybe find some useful tips an
 7. Keep track of your shared posts and scheduling plan with the Social Media Calendar.
 
 == Changelog ==
-= 6.7.2 = 
+= 6.8.2 = 
 Usability Optimization
+= 6.8.1 = 
+Usability Optimization
+= 6.8.0 = 
+Usability Optimization & Blogger.com integration
+= 6.7.2 = 
+Usability Optimization & Blogger.com integration
 = 6.7.1 = 
 Usability Optimization
 = 6.7.0 = 
@@ -277,6 +284,12 @@ Usability Optimization, Rebrandly integration, url parameter settings
 New Image Posts, Imgur, Animated Gifs and Emojis
 
 == Upgrade Notice ==
+= 6.8.2 = 
+Usability Optimization
+= 6.8.1 = 
+Usability Optimization
+= 6.8.0 = 
+Usability Optimization & Blogger.com integration
 = 6.7.2 = 
 Usability Optimization
 = 6.7.1 = 

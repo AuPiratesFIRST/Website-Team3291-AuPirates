@@ -2,6 +2,12 @@
 wp_nonce_field('b2s_security_nonce', 'b2s_security_nonce');
 require_once B2S_PLUGIN_DIR . 'includes/B2S/Network/Item.php';
 require_once B2S_PLUGIN_DIR . 'includes/Tools.php';
+require_once B2S_PLUGIN_DIR . 'includes/Options.php';
+$options = new B2S_Options(B2S_PLUGIN_BLOG_USER_ID);
+$optionUserTimeFormat = $options->_getOption('user_time_format');
+if($optionUserTimeFormat == false) {
+    $optionUserTimeFormat = (substr(B2S_LANGUAGE, 0, 2) == 'de') ? 0 : 1;
+}
 $b2sSiteUrl = get_option('siteurl') . ((substr(get_option('siteurl'), -1, 1) == '/') ? '' : '/');
 $displayName = stripslashes(get_user_by('id', B2S_PLUGIN_BLOG_USER_ID)->display_name);
 $displayName = ((empty($displayName) || $displayName == false) ? __("Unknown username", "blog2social") : $displayName);
@@ -303,6 +309,7 @@ $networkData = $networkItem->getData();
                         <span class="b2s-bold">{CONTENT}</span> - <?php esc_html_e('The content of your post', 'blog2social') ?> <br>
                         <span class="b2s-bold">{KEYWORDS}</span> - <?php esc_html_e('The tags you have set in your post.', 'blog2social') ?> <br>
                         <span class="b2s-bold">{AUTHOR}</span> - <?php esc_html_e('The name of the post author.', 'blog2social') ?> <br>
+                        <span class="b2s-bold">{PRICE}</span> - <?php esc_html_e('The price of your product, if you have installed WooCommerce on your website/ blog.', 'blog2social') ?> <br>
                     </p>
                 </div>
             </div>
@@ -527,6 +534,9 @@ $networkData = $networkItem->getData();
                                 <div class="col-md-12 b2s-assign-error" data-error-reason="network_auth_assign_exists" style="display: none;">
                                     <div class="alert alert-danger"><span class="glyphicon glyphicon-remove glyphicon-danger"></span> <?php esc_html_e("This connection has already been assigned to this user.", 'blog2social'); ?></div>
                                 </div>
+                                <div class="col-md-12 b2s-assign-error" data-error-reason="assign_user_auth_not_allow" style="display: none;">
+                                    <div class="alert alert-danger"><span class="glyphicon glyphicon-remove glyphicon-danger"></span> <?php esc_html_e("This user has reached the maximum number of connections.", 'blog2social'); ?></div>
+                                </div>
                                 <div class="col-md-12" id="b2s-assign-info">
                                     <div class="alert alert-warning"><span class="glyphicon glyphicon-warning-sign glyphicon-warning"></span> <?php esc_html_e('You can only share the connection with blog users who use the same license as you.', 'blog2social'); ?></div>
                                 </div>
@@ -719,6 +729,7 @@ $networkData = $networkItem->getData();
 </div>
 
 <input type="hidden" id="b2sUserLang" value="<?php echo substr(B2S_LANGUAGE, 0, 2); ?>">
+<input type="hidden" id="b2sUserTimeFormat" value="<?php echo $optionUserTimeFormat; ?>">
 <input type="hidden" id="b2sServerUrl" value="<?php echo B2S_PLUGIN_SERVER_URL; ?>">
 <input type="hidden" id="b2sUserVersion" value="<?php echo B2S_PLUGIN_USER_VERSION; ?>">
 <input type="hidden" id="b2s-redirect-url-sched-post" value="<?php echo $b2sSiteUrl . 'wp-admin/admin.php?page=blog2social-sched'; ?>"/>

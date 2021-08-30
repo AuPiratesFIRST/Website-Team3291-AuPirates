@@ -175,6 +175,8 @@ class B2S_Network_Item {
                     $html .= '<a href="#" class="btn btn-primary btn-sm b2s-network-auth-btn b2s-btn-disabled b2sBusinessFeatureModalBtn" data-title="' . esc_attr__('You want to connect a network profile?', 'blog2social') . '" data-type="auth-network">+ ' . esc_html__('Profile', 'blog2social') . ' <span class="label label-success">' . esc_html__("BUSINESS", "blog2social") . '</a>';
                 } else if($networkId == 12) {
                     $html .= '<button class="btn btn-primary btn-sm b2s-network-auth-btn b2s-network-add-instagram-info-btn" data-b2s-auth-url="'.$b2sAuthUrl.'">+ ' . $name . '</button>';
+                } else if($networkId == 25 && B2S_PLUGIN_USER_VERSION < 1) {
+                    $html .= '<a href="#" class="btn btn-primary btn-sm b2s-network-auth-btn b2s-btn-disabled b2sPreFeatureModalBtn" data-title="' . esc_attr__('You want to connect a network profile?', 'blog2social') . '" data-type="auth-network">+ ' . esc_html__('Profile', 'blog2social') . ' <span class="label label-success">' . esc_html__("SMART", "blog2social") . '</a>';
                 } else {
                     $html .= ($networkId != 18 || (B2S_PLUGIN_USER_VERSION >= 2 && $networkId == 18)) ? '<a href="#" onclick="wop(\'' . $b2sAuthUrl . '&choose=profile\', \'Blog2Social Network\'); return false;" class="btn btn-primary btn-sm b2s-network-auth-btn">+ ' . esc_html($name) . '</a>' : '<a href="#" class="btn btn-primary btn-sm b2s-network-auth-btn b2s-btn-disabled b2sProFeatureModalBtn" data-title="' . esc_attr__('You want to connect a network profile?', 'blog2social') . '" data-type="auth-network">+ ' . esc_html__('Profile', 'blog2social') . ' <span class="label label-success">' . esc_html__("PRO", "blog2social") . '</a>';
                 }
@@ -596,8 +598,8 @@ class B2S_Network_Item {
                 if(!isset($post_template[$networkId][$type])) {
                     $post_template[$networkId][$type] = $value;
                 }
-                if($networkId == 24) { //special Telegram disable PostFormat
-                    $post_template[$networkId][$type]['format'] = false;
+                if($networkId == 24 && $post_template[$networkId][$type]['format'] == false) { //new 6.8.2: format activate again | old: special Telegram disable PostFormat
+                    $post_template[$networkId][$type]['format'] = 0;
                 }
             }
             $schema = $post_template[$networkId];
@@ -663,14 +665,14 @@ class B2S_Network_Item {
         }
         $html .= '<div class="row">';
         $html .= '<div class="col-sm-12">';
-        if (count($schema) > 1) {
+        if (count($defaultSchema) > 1) {
             $html .= '<div class="pull-left ' . ((B2S_PLUGIN_USER_VERSION < 1) ? 'b2s-btn-disabled' : '') . '">';
             $html .= '<ul class="nav nav-pills">';
             $html .= '<li class="active"><a href="#b2s-template-profile" class="b2s-template-profile" data-toggle="tab">' . (($networkId == 12) ? esc_html__('Personal', 'blog2social') : esc_html__('Profile', 'blog2social')) . '</a></li>';
-            if (isset($schema[1]) && !empty($schema[1]) && $networkId != 11) {
+            if (isset($defaultSchema[1]) && !empty($defaultSchema[1]) && $networkId != 11) {
                 $html .= '<li><a href="#b2s-template-page" class="b2s-template-page" data-toggle="tab">' . (($networkId == 12) ? esc_html__('Business', 'blog2social') : esc_html__('Page', 'blog2social')) . '</a></li>';
             }
-            if (isset($schema[2]) && !empty($schema[2])) {
+            if (isset($defaultSchema[2]) && !empty($defaultSchema[2])) {
                 $html .= '<li><a href="#b2s-template-group" class="b2s-template-group" data-toggle="tab">' . esc_html__('Group', 'blog2social') . '</a></li>';
             }
             $html .= '</ul>';
@@ -686,15 +688,17 @@ class B2S_Network_Item {
             $html .= '<div class="b2s-btn-disabled">';
         }
         $html .= '<div class="tab-content clearfix">';
-        $html .= '<div class="tab-pane active b2s-template-tab-0" id="b2s-template-profile">';
-        $html .= $this->getEditTemplateFormContent($networkId, 0, $schema);
-        $html .= '</div>';
-        if (isset($schema[1]) && !empty($schema[1])) {
-            $html .= '<div class="tab-pane b2s-template-tab-1" id="b2s-template-page">';
+        if (isset($defaultSchema[0]) && !empty($defaultSchema[0])) {
+            $html .= '<div class="tab-pane active b2s-template-tab-0" id="b2s-template-profile">';
+            $html .= $this->getEditTemplateFormContent($networkId, 0, $schema);
+            $html .= '</div>';
+        }
+        if (isset($defaultSchema[1]) && !empty($defaultSchema[1])) {
+            $html .= '<div class="tab-pane b2s-template-tab-1 '.((!isset($defaultSchema[0]) || empty($defaultSchema[0])) ? 'active' : '').'" id="b2s-template-page">';
             $html .= $this->getEditTemplateFormContent($networkId, 1, $schema);
             $html .= '</div>';
         }
-        if (isset($schema[2]) && !empty($schema[2])) {
+        if (isset($defaultSchema[2]) && !empty($defaultSchema[2])) {
             $html .= '<div class="tab-pane b2s-template-tab-2" id="b2s-template-group">';
             $html .= $this->getEditTemplateFormContent($networkId, 2, $schema);
             $html .= '</div>';
@@ -716,7 +720,6 @@ class B2S_Network_Item {
         $multi_kind = false;
         if($networkId == 19 && $networkType == 1) {
             $multi_kind = true;
-            $limit = 1000;
             if(!isset($schema[$networkType]['short_text'][0]['limit'])) {
                 if(isset($schema[$networkType]['short_text']['limit'])) {
                     $schema[$networkType]['short_text'] = array(0 => $schema[$networkType]['short_text'], 4 => $defaultTemplate[$networkId][$networkType]['short_text'][4]);
@@ -767,19 +770,34 @@ class B2S_Network_Item {
         if($networkId == 12) {
             $content .= '<div class="row">';
             $content .= '<div class="col-md-12">';
-            $content .= '<div class="alert alert-warning b2s-edit-template-hashtag-warning" style="display:none;">' . esc_html__('Instagram supports up to 30 hashtags. Please reduce the number of hashtags in your post.', 'blog2social') . '</div>';
+            $content .= '<div class="alert alert-warning b2s-edit-template-hashtag-warning" style="display:none;">' . esc_html__('Good to know: Instagram supports up to 30 hashtags in a post. The number recommended for best results is 5 hashtags. Make sure that your hashtags are thematically relevant to the content of your post.', 'blog2social') . '</div>';
             $content .= '</div>';
             $content .= '</div>';
         }
         $content .= '<div class="row">';
         $content .= '<div class="col-md-12">';
+        
+        $woocommerce_active = false;
+        if (class_exists('WooCommerce') && function_exists('wc_get_product')) {
+            $woocommerce_active = true;
+        }
         $content .= '<div class="b2s-padding-bottom-5">'
                 . '<button type="button" draggable="true" class="btn btn-primary btn-xs b2s-edit-template-content-post-title b2s-edit-template-content-post-item" data-network-type="' . esc_attr($networkType) . '">{TITLE}</button>'
                 . '<button type="button" draggable="true" class="btn btn-primary btn-xs b2s-edit-template-content-post-excerpt b2s-edit-template-content-post-item" data-network-type="' . esc_attr($networkType) . '">{EXCERPT}</button>'
                 . '<button type="button" draggable="true" class="btn btn-primary btn-xs b2s-edit-template-content-post-content b2s-edit-template-content-post-item" data-network-type="' . esc_attr($networkType) . '">{CONTENT}</button>'
                 . ((isset($defaultTemplate[$networkId][$networkType]['disableKeywords']) && $defaultTemplate[$networkId][$networkType]['disableKeywords'] == true) ? '' : '<button type="button" draggable="true" class="btn btn-primary btn-xs b2s-edit-template-content-post-keywords b2s-edit-template-content-post-item" data-network-type="' . esc_attr($networkType) . '">{KEYWORDS}</button>')
                 . '<button type="button" draggable="true" class="btn btn-primary btn-xs b2s-edit-template-content-post-author b2s-edit-template-content-post-item" data-network-type="' . esc_attr($networkType) . '">{AUTHOR}</button>'
-                . '<button type="button" class="btn btn-primary btn-xs b2s-edit-template-content-clear-btn pull-right" data-network-type="' . esc_attr($networkType) . '">' . esc_html__('clear', 'blog2social') . '</button>'
+                . (($woocommerce_active) ? '<button type="button" draggable="true" class="btn btn-primary btn-xs b2s-edit-template-content-post-price b2s-edit-template-content-post-item" data-network-type="' . esc_attr($networkType) . '">{PRICE}</button>' : '');
+        
+        $b2sHook = new B2S_Hook_Filter();
+        $additionalTaxonomies = $b2sHook->get_posting_template_show_taxonomies();
+        if(is_array($additionalTaxonomies) && !empty($additionalTaxonomies)) {
+            foreach ($additionalTaxonomies as $k => $taxonomie) {
+                $content .= '<button type="button" draggable="true" class="btn btn-primary btn-xs b2s-edit-template-content-post-'.esc_html($taxonomie).' b2s-edit-template-content-post-item" data-network-type="' . esc_attr($networkType) . '">{'.esc_html($taxonomie).'}</button>';
+            }
+        }
+        
+        $content .= '<button type="button" class="btn btn-primary btn-xs b2s-edit-template-content-clear-btn pull-right" data-network-type="' . esc_attr($networkType) . '">' . esc_html__('clear', 'blog2social') . '</button>'
                 . '</div>';
         $content .= '<textarea class="b2s-edit-template-post-content" style="width: 100%;" data-network-type="' . esc_attr($networkType) . '" ' . ((B2S_PLUGIN_USER_VERSION < 1) ? 'readonly="true"' : '') . ' '.(($limit > 0) ? 'maxlength="'.$limit.'"' : '').'>' . esc_html(stripslashes($schema[$networkType]['content'])) . '</textarea>';
         $content .= '<input class="b2s-edit-template-content-selection-start" data-network-type="' . esc_attr($networkType) . '" type="hidden" value="0">';
@@ -860,7 +878,7 @@ class B2S_Network_Item {
             $content .= '</div>';
             $content .= '</div>';
             $content .= '</div>';
-            if(!in_array($networkId, array(4, 11, 14, 16))) { //V6.7 don't show recommended length for HTML Networks
+            if(!in_array($networkId, array(4, 11, 14, 16, 25))) { //V6.7 don't show recommended length for HTML Networks
                 $content .= '<div class="row">';
                 $content .= '<div class="col-md-12 b2s-edit-template-link-info">';
                 $content .= '<i class="glyphicon glyphicon-info-sign"></i> ' . esc_html(__('recommended length', 'blog2social') . ': ' . $defaultTemplate[$networkId][$networkType]['short_text']['range_min'] . ' ' . __('characters', 'blog2social') . (((int) $limit != 0) ? '; ' . __('Network limit', 'blog2social') . ': ' . $limit . ' ' . __('characters', 'blog2social') : ''));
@@ -1461,6 +1479,22 @@ class B2S_Network_Item {
                 $preview .= '</div>';
                 $preview .= '</div>';
                 
+                $preview .= '</div>';
+                $preview .= '</div>';
+                break;
+            case '25':
+                $preview .= '<div class="row">';
+                $preview .= '<div class="col-sm-2">';
+                $preview .= '<span class="b2s-edit-template-section-headline">' . esc_html__('Preview', 'blog2social') . ':</span>';
+                $preview .= '</div>';
+                $preview .= '<div class="col-sm-8 b2s-edit-template-preview-border">';
+                $preview .= '<div class="row">';
+                $preview .= '<div class="col-sm-12">';
+                $preview .= '<p class="b2s-edit-template-preview-title b2s-edit-template-preview-title-11" data-network-type="' . esc_attr($networkType) . '">TITLE</p><br>';
+                $preview .= '<p class="b2s-edit-template-preview-content b2s-edit-template-preview-content-11" data-network-type="' . esc_attr($networkType) . '">' . preg_replace("/\n/", "<br>", esc_html($schema[$networkType]['content'])) . '</p>';
+                $preview .= '<img class="b2s-edit-template-preview-image-image b2s-edit-template-preview-image-image-11" src="' . $this->previewImage . '">';
+                $preview .= '</div>';
+                $preview .= '</div>';
                 $preview .= '</div>';
                 $preview .= '</div>';
                 break;

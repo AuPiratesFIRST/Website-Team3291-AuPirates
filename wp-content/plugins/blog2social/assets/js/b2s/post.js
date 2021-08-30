@@ -735,6 +735,8 @@ function showEditSchedPost(b2s_id, post_id, network_auth_id, network_type, netwo
     if (jQuery('#b2sUserLang').val() == "de") {
         dateFormat = "dd.mm.yyyy";
         language = "de";
+    }
+    if (jQuery('#b2sUserTimeFormat').val() == 0) {
         showMeridian = false;
     }
 
