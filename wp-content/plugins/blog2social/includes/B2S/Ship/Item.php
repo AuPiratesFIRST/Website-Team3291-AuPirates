@@ -726,7 +726,7 @@ class B2S_Ship_Item {
         return $edit;
     }
 
-    public function getCustomEditSchedArea($schedCount = 0, $networkId, $networkAuthId, $networkType, $message, $isRequiredTextarea, $textareaOnKeyUp, $limit, $limitValue, $infoArea, $imageUrl = null) {
+    public function getCustomEditSchedArea($schedCount = 0, $networkId = 0, $networkAuthId = 0, $networkType = 0, $message = '', $isRequiredTextarea = '', $textareaOnKeyUp = '', $limit = 0, $limitValue = 0, $infoArea = '', $imageUrl = null) {
         if ($networkId == 1 || ($networkId == 8 && $networkType == 0) || $networkId == 19 || $networkId == 3 || $networkId == 2 || $networkId == 15 || $networkId == 17 || $networkId == 24) {
             if ($networkId == 1) {
                 $edit = '<div class="row"><br>';

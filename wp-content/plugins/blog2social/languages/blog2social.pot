@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Blog2Social: Social Media Auto Post & Scheduler\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-13 12:49+0000\n"
+"POT-Creation-Date: 2021-09-14 11:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -40,11 +40,11 @@ msgstr ""
 msgid "(SMART)"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:584
+#: includes/B2S/Network/Item.php:604
 msgid "+ add Parameter"
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:420
+#: includes/B2S/Ship/Save.php:421
 msgid ""
 "-For scheduled posts, Blog2Social will save your post and move it to the "
 "\"Scheduled Posts\" tab on your \"Posts & Sharing\" navigation bar. On your "
@@ -52,7 +52,7 @@ msgid ""
 "and you can click on \"Share\" to post it to your Facebook Profile instantly."
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:428
+#: includes/B2S/Ship/Save.php:429
 msgid ""
 "-For scheduled posts, Blog2Social will save your post and move it to the "
 "\"Scheduled Posts\" tab on your \"Site & Blog Content\" navigation bar. On "
@@ -60,13 +60,13 @@ msgid ""
 "tab and you can click on \"Share\" to post it to your account instantly."
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:419
+#: includes/B2S/Ship/Save.php:420
 msgid ""
 "-To share your post immediately, click the \"Share\" button next to your "
 "selected Facebook profile below."
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:427
+#: includes/B2S/Ship/Save.php:428
 msgid ""
 "-To share your post immediately, click the \"Share\" button next to your "
 "selected Google+ account below."
@@ -91,7 +91,7 @@ msgid ""
 "sites or groups.</a>"
 msgstr ""
 
-#: includes/Loader.php:1581 includes/System.php:32 includes/System.php:38
+#: includes/Loader.php:1593 includes/System.php:32 includes/System.php:38
 #, php-format
 msgid ""
 "<a href=\"%s\" target=\"_blank\">Please find more Information and help in "
@@ -166,7 +166,7 @@ msgstr ""
 msgid "Activate Blog2Social PREMIUM PRO."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:682
+#: includes/B2S/Network/Item.php:702
 msgid "Activate Instant Caching"
 msgstr ""
 
@@ -190,17 +190,17 @@ msgstr ""
 msgid "Activities"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:834
+#: includes/B2S/Network/Item.php:854
 msgid "Add a link-URL to the end of my image post."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:841
+#: includes/B2S/Network/Item.php:861
 msgid ""
 "Add a link-URL to the end of my Instagram posts. (Please note, that "
 "Instagram does not turn link-URLs into clickable links)"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:853
+#: includes/B2S/Network/Item.php:873
 msgid "Add a link-URL to the end of my post."
 msgstr ""
 
@@ -288,15 +288,15 @@ msgstr ""
 msgid "add/change connection"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:115
+#: includes/B2S/Network/Item.php:116
 msgid "additional groups"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:115
+#: includes/B2S/Network/Item.php:116
 msgid "additional pages"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:115
+#: includes/B2S/Network/Item.php:116
 msgid "additional profiles"
 msgstr ""
 
@@ -379,7 +379,7 @@ msgstr ""
 msgid "An error occurred! Please try again."
 msgstr ""
 
-#: includes/Loader.php:908
+#: includes/Loader.php:920
 msgid "An image is required to post on this social network."
 msgstr ""
 
@@ -412,12 +412,12 @@ msgstr ""
 msgid "Apply best times"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:585
+#: includes/B2S/Network/Item.php:605
 #, php-format
 msgid "Apply for all %s connections"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:586
+#: includes/B2S/Network/Item.php:606
 msgid "Apply for all connections"
 msgstr ""
 
@@ -482,8 +482,8 @@ msgstr ""
 msgid "Assign the connection to other blog users"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:255 includes/B2S/Network/Item.php:325
-#: includes/B2S/Network/Item.php:396
+#: includes/B2S/Network/Item.php:266 includes/B2S/Network/Item.php:339
+#: includes/B2S/Network/Item.php:413
 msgid "Assigned by"
 msgstr ""
 
@@ -515,8 +515,8 @@ msgstr ""
 msgid "Austria"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:437 includes/B2S/Post/Item.php:536
-#: includes/B2S/Post/Item.php:556 includes/B2S/Post/Item.php:580
+#: includes/B2S/Post/Item.php:437 includes/B2S/Post/Item.php:543
+#: includes/B2S/Post/Item.php:563 includes/B2S/Post/Item.php:587
 #: includes/PRG/Post/Item.php:121
 msgid "Author"
 msgstr ""
@@ -555,8 +555,8 @@ msgstr ""
 msgid "Auto-post and auto-schedule new and updated blog posts"
 msgstr ""
 
-#: views/b2s/premium.php:109 includes/B2S/Post/Item.php:730
-#: includes/B2S/Post/Item.php:892
+#: views/b2s/premium.php:109 includes/B2S/Post/Item.php:737
+#: includes/B2S/Post/Item.php:900
 msgid "Auto-Posting"
 msgstr ""
 
@@ -576,7 +576,7 @@ msgstr ""
 msgid "Autoposter limit has been reached"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:114
+#: includes/B2S/Network/Item.php:115
 msgid "Available accounts"
 msgstr ""
 
@@ -592,11 +592,11 @@ msgstr ""
 msgid "Available networks to select your auto-post connecitons:"
 msgstr ""
 
-#: includes/Loader.php:1581 includes/Loader.php:1602 includes/Loader.php:1856
+#: includes/Loader.php:1593 includes/Loader.php:1614 includes/Loader.php:1868
 msgid "back to install plugins"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:211 views/b2s/html/footer.php:241
+#: includes/B2S/Network/Item.php:222 views/b2s/html/footer.php:241
 msgid "Best Time Manager"
 msgstr ""
 
@@ -626,7 +626,7 @@ msgstr ""
 msgid "Best Time Scheduler: Schedule once, multiple times or recurringly."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:162
+#: includes/B2S/Network/Item.php:163
 msgid "Best times"
 msgstr ""
 
@@ -638,13 +638,12 @@ msgstr ""
 msgid "Bitly"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:170 includes/B2S/Network/Item.php:257
+#: includes/Loader.php:892 includes/Loader.php:901
 #: includes/B2S/Ship/Item.php:331 includes/B2S/Ship/Navbar.php:90
-#: includes/B2S/Ship/Portale.php:43
 msgid "Blog"
 msgstr ""
 
-#: includes/Loader.php:1010 views/b2s/html/sidebar.php:25
+#: includes/Loader.php:1022 views/b2s/html/sidebar.php:25
 #: views/b2s/html/sidebar.ship.php:24
 msgid "Blog2Social"
 msgstr ""
@@ -691,7 +690,7 @@ msgstr ""
 msgid "Blog2Social is a service of Adenion GmbH"
 msgstr ""
 
-#: includes/Loader.php:1581
+#: includes/Loader.php:1593
 msgid "Blog2Social needs Wordpress Version 4.7.0 or higher."
 msgstr ""
 
@@ -793,6 +792,10 @@ msgstr ""
 msgid "Blog2Social: Social Media Content Calendar"
 msgstr ""
 
+#: includes/Loader.php:893
+msgid "Board"
+msgstr ""
+
 #: includes/B2S/Settings/Item.php:82 includes/B2S/Settings/Item.php:93
 msgid "Brand"
 msgstr ""
@@ -801,15 +804,13 @@ msgstr ""
 msgid "Browse the Blog2Social support community"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:175 includes/B2S/Ship/Portale.php:47
+#: includes/B2S/Network/Item.php:179 includes/B2S/Ship/Portale.php:59
 msgid "BUSINESS"
 msgstr ""
 
-#: includes/Loader.php:891 includes/B2S/Network/Item.php:188
-#: includes/B2S/Network/Item.php:188 includes/B2S/Network/Item.php:327
-#: includes/B2S/Network/Item.php:673 includes/B2S/Ship/Item.php:331
-#: includes/B2S/Ship/Navbar.php:90 includes/B2S/Ship/Portale.php:37
-#: includes/B2S/Ship/Portale.php:37
+#: includes/Loader.php:895 includes/Loader.php:903
+#: includes/B2S/Network/Item.php:196 includes/B2S/Network/Item.php:693
+#: includes/B2S/Ship/Item.php:331 includes/B2S/Ship/Navbar.php:90
 msgid "Business"
 msgstr ""
 
@@ -838,7 +839,7 @@ msgid ""
 "updated."
 msgstr ""
 
-#: includes/Loader.php:977 includes/Loader.php:1040 views/b2s/dashboard.php:30
+#: includes/Loader.php:989 includes/Loader.php:1052 views/b2s/dashboard.php:30
 #: includes/B2S/RePost/Item.php:141 views/b2s/html/post.navbar.php:23
 #: views/b2s/html/sidebar.php:128
 msgid "Calendar"
@@ -912,13 +913,17 @@ msgid ""
 "with link-post settings for this post."
 msgstr ""
 
-#: views/b2s/network.php:325 includes/B2S/Network/Item.php:860
+#: includes/Loader.php:900
+msgid "Channel"
+msgstr ""
+
+#: views/b2s/network.php:325 includes/B2S/Network/Item.php:880
 msgid "Character limit"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:827 includes/B2S/Network/Item.php:884
-#: includes/B2S/Network/Item.php:884 includes/B2S/Network/Item.php:920
-#: includes/B2S/Network/Item.php:920 includes/B2S/Ship/Item.php:215
+#: includes/B2S/Network/Item.php:847 includes/B2S/Network/Item.php:904
+#: includes/B2S/Network/Item.php:904 includes/B2S/Network/Item.php:940
+#: includes/B2S/Network/Item.php:940 includes/B2S/Ship/Item.php:215
 #: includes/B2S/Ship/Item.php:219 includes/B2S/Ship/Item.php:262
 #: includes/B2S/Ship/Item.php:266 includes/B2S/Ship/Item.php:299
 #: includes/B2S/Ship/Item.php:303 includes/B2S/Ship/Item.php:1338
@@ -968,7 +973,7 @@ msgstr ""
 msgid "Classified Ads"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:800
+#: includes/B2S/Network/Item.php:820
 msgid "clear"
 msgstr ""
 
@@ -988,7 +993,7 @@ msgstr ""
 msgid "Click on \"continue\""
 msgstr ""
 
-#: views/b2s/post.sched.php:37 includes/B2S/Network/Item.php:158
+#: views/b2s/post.sched.php:37 includes/B2S/Network/Item.php:159
 msgid "Clock"
 msgstr ""
 
@@ -1000,6 +1005,10 @@ msgstr ""
 msgid "Colombia"
 msgstr ""
 
+#: includes/Loader.php:897
+msgid "Community"
+msgstr ""
+
 #: views/prg/html/form.php:74
 msgid "Company"
 msgstr ""
@@ -1008,7 +1017,7 @@ msgstr ""
 msgid "Company Description"
 msgstr ""
 
-#: includes/Loader.php:891
+#: includes/Loader.php:903
 msgid "Company-Page (Employer Branding Profile)"
 msgstr ""
 
@@ -1019,6 +1028,22 @@ msgstr ""
 
 #: views/b2s/ship.php:223
 msgid "connect"
+msgstr ""
+
+#: includes/B2S/Network/Item.php:176 includes/B2S/Network/Item.php:179
+#: includes/B2S/Network/Item.php:181 includes/B2S/Network/Item.php:183
+#: includes/B2S/Network/Item.php:185 includes/B2S/Network/Item.php:196
+#: includes/B2S/Network/Item.php:198 includes/B2S/Network/Item.php:198
+#: includes/B2S/Network/Item.php:198 includes/B2S/Network/Item.php:206
+#: includes/B2S/Network/Item.php:206 includes/B2S/Network/Item.php:206
+#: includes/B2S/Ship/Portale.php:37 includes/B2S/Ship/Portale.php:37
+#: includes/B2S/Ship/Portale.php:46 includes/B2S/Ship/Portale.php:46
+#: includes/B2S/Ship/Portale.php:48 includes/B2S/Ship/Portale.php:48
+#: includes/B2S/Ship/Portale.php:57 includes/B2S/Ship/Portale.php:59
+#: includes/B2S/Ship/Portale.php:61 includes/B2S/Ship/Portale.php:63
+#: includes/B2S/Ship/Portale.php:63
+#, php-format
+msgid "Connect %s"
 msgstr ""
 
 #: views/b2s/settings.php:77
@@ -1044,7 +1069,7 @@ msgstr ""
 msgid "Connect your social media networks"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:514
+#: includes/B2S/Network/Item.php:534
 msgid "Connection currently assigned to"
 msgstr ""
 
@@ -1060,12 +1085,12 @@ msgstr ""
 msgid "Connection is broken..."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:251 includes/B2S/Network/Item.php:321
-#: includes/B2S/Network/Item.php:392
+#: includes/B2S/Network/Item.php:262 includes/B2S/Network/Item.php:335
+#: includes/B2S/Network/Item.php:409
 msgid "Connection is interrupted since"
 msgstr ""
 
-#: includes/B2S/AutoPost/Item.php:243 includes/B2S/Network/Item.php:207
+#: includes/B2S/AutoPost/Item.php:243 includes/B2S/Network/Item.php:218
 msgid "Connections"
 msgstr ""
 
@@ -1073,7 +1098,7 @@ msgstr ""
 msgid "Contact Details"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:764 includes/B2S/Settings/Item.php:77
+#: includes/B2S/Network/Item.php:784 includes/B2S/Settings/Item.php:77
 msgid "Content"
 msgstr ""
 
@@ -1159,7 +1184,7 @@ msgstr ""
 msgid "Create Post"
 msgstr ""
 
-#: includes/Loader.php:976
+#: includes/Loader.php:988
 msgid "Create Social Media Posts"
 msgstr ""
 
@@ -1216,7 +1241,7 @@ msgstr ""
 msgid "Czechoslovakia"
 msgstr ""
 
-#: includes/Loader.php:974 includes/Loader.php:1019
+#: includes/Loader.php:986 includes/Loader.php:1031
 msgid "Dashboard"
 msgstr ""
 
@@ -1231,8 +1256,8 @@ msgstr ""
 msgid "Day of month"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:297 includes/B2S/Network/Item.php:367
-#: includes/B2S/Network/Item.php:433 includes/B2S/Ship/Item.php:1259
+#: includes/B2S/Network/Item.php:311 includes/B2S/Network/Item.php:384
+#: includes/B2S/Network/Item.php:453 includes/B2S/Ship/Item.php:1259
 msgid "Days"
 msgstr ""
 
@@ -1261,11 +1286,11 @@ msgid ""
 "frame, or as image cut out."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:66
+#: includes/B2S/Network/Item.php:67
 msgid "Default"
 msgstr ""
 
-#: views/b2s/network.php:566 includes/B2S/Network/Item.php:557
+#: views/b2s/network.php:566 includes/B2S/Network/Item.php:577
 #, php-format
 msgid ""
 "Define parameters that will be added to link posts on this network e.g. to "
@@ -1324,9 +1349,9 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: includes/Ajax/Post.php:1956 includes/B2S/Network/Item.php:527
-#: includes/B2S/Post/Item.php:534 includes/B2S/Post/Item.php:554
-#: includes/B2S/Post/Item.php:869 includes/B2S/Post/Item.php:927
+#: includes/Ajax/Post.php:1956 includes/B2S/Network/Item.php:547
+#: includes/B2S/Post/Item.php:541 includes/B2S/Post/Item.php:561
+#: includes/B2S/Post/Item.php:877 includes/B2S/Post/Item.php:935
 #: includes/B2S/Settings/Item.php:103 includes/B2S/Ship/Item.php:1179
 #: includes/B2S/Ship/Item.php:1329
 msgid "delete"
@@ -1357,7 +1382,7 @@ msgstr ""
 msgid "Delete entries from the scheduling"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:795 includes/B2S/Post/Item.php:808
+#: includes/B2S/Post/Item.php:802 includes/B2S/Post/Item.php:815
 msgid "delete from reporting"
 msgstr ""
 
@@ -1369,7 +1394,7 @@ msgstr ""
 msgid "Delete scheduled posts"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:936
+#: includes/B2S/Post/Item.php:944
 msgid "delete scheduling"
 msgstr ""
 
@@ -1401,8 +1426,8 @@ msgstr ""
 msgid "description"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:455 includes/B2S/Post/Item.php:479
-#: includes/B2S/Post/Item.php:501 includes/B2S/Post/Item.php:598
+#: includes/B2S/Post/Item.php:462 includes/B2S/Post/Item.php:486
+#: includes/B2S/Post/Item.php:508 includes/B2S/Post/Item.php:605
 msgid "Details"
 msgstr ""
 
@@ -1486,7 +1511,7 @@ msgid ""
 "media network."
 msgstr ""
 
-#: includes/B2S/Post/Item.php:924
+#: includes/B2S/Post/Item.php:932
 msgid "edit"
 msgstr ""
 
@@ -1498,8 +1523,8 @@ msgstr ""
 msgid "Edit Post"
 msgstr ""
 
-#: views/b2s/network.php:236 includes/B2S/Network/Item.php:198
-#: includes/B2S/Network/Item.php:198
+#: views/b2s/network.php:236 includes/B2S/Network/Item.php:209
+#: includes/B2S/Network/Item.php:209
 msgid "Edit Post Template"
 msgstr ""
 
@@ -1522,6 +1547,10 @@ msgstr ""
 
 #: views/b2s/support.php:122
 msgid "Email address is taken."
+msgstr ""
+
+#: includes/Loader.php:899
+msgid "Employer Branding"
 msgstr ""
 
 #: includes/B2S/PostBox.php:178
@@ -1630,15 +1659,15 @@ msgstr ""
 msgid "Facebook pages"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:617
+#: includes/B2S/Network/Item.php:637
 msgid "Failed to load the default template"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:616
+#: includes/B2S/Network/Item.php:636
 msgid "Failed to save"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:746 includes/B2S/Ship/Save.php:463
+#: includes/B2S/Post/Item.php:753 includes/B2S/Ship/Save.php:464
 msgid "FAQ"
 msgstr ""
 
@@ -1714,12 +1743,12 @@ msgid ""
 "your preferred custom post format."
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:424
+#: includes/B2S/Ship/Save.php:425
 msgid ""
 "For sharing your posts on Google+ you can now use Google+ Instant Sharing"
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:416
+#: includes/B2S/Ship/Save.php:417
 msgid ""
 "For sharing your posts on personal Facebook Profiles you can use Facebook "
 "Instant Sharing"
@@ -1738,7 +1767,7 @@ msgstr ""
 msgid "Forgot username or password?"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:744
+#: includes/B2S/Network/Item.php:764
 msgid "Format"
 msgstr ""
 
@@ -1825,7 +1854,7 @@ msgid ""
 "inspiring content."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:773 includes/B2S/Ship/Item.php:372
+#: includes/B2S/Network/Item.php:793 includes/B2S/Ship/Item.php:372
 msgid ""
 "Good to know: Instagram supports up to 30 hashtags in a post. The number "
 "recommended for best results is 5 hashtags. Make sure that your hashtags are "
@@ -1857,9 +1886,7 @@ msgstr ""
 msgid "Greece"
 msgstr ""
 
-#: includes/Loader.php:890 includes/B2S/Network/Item.php:194
-#: includes/B2S/Network/Item.php:398 includes/B2S/Network/Item.php:676
-#: includes/B2S/Ship/Portale.php:31 includes/B2S/Ship/Portale.php:32
+#: includes/Loader.php:890 includes/B2S/Network/Item.php:696
 msgid "Group"
 msgstr ""
 
@@ -1867,7 +1894,7 @@ msgstr ""
 msgid "guide for server connection"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:846
+#: includes/B2S/Network/Item.php:866
 msgid "Hashtag shuffle (Hashtags have to be defined in the text field above)"
 msgstr ""
 
@@ -1879,7 +1906,7 @@ msgstr ""
 msgid "Help & Community"
 msgstr ""
 
-#: includes/Loader.php:983 includes/Loader.php:1069
+#: includes/Loader.php:995 includes/Loader.php:1081
 #: views/b2s/html/header.php:40 views/b2s/html/sidebar.php:140
 #: views/b2s/html/sidebar.ship.php:66
 msgid "Help & Support"
@@ -1973,7 +2000,7 @@ msgstr ""
 msgid "Ignore & share"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:752 includes/B2S/Network/Item.php:755
+#: includes/B2S/Network/Item.php:772 includes/B2S/Network/Item.php:775
 msgid "Image"
 msgstr ""
 
@@ -1983,7 +2010,7 @@ msgstr ""
 
 #: views/b2s/post.calendar.php:74 views/b2s/post.sched.php:194
 #: views/b2s/repost.php:50 views/b2s/repost.php:87
-#: includes/B2S/Network/Item.php:752 includes/B2S/Network/Item.php:755
+#: includes/B2S/Network/Item.php:772 includes/B2S/Network/Item.php:775
 #: includes/B2S/Settings/Item.php:266 views/b2s/html/footer.php:182
 msgid "Image cut out"
 msgstr ""
@@ -1991,7 +2018,7 @@ msgstr ""
 #: views/b2s/curation.php:48 views/b2s/curation.php:51
 #: views/b2s/post.calendar.php:74 views/b2s/post.sched.php:194
 #: views/b2s/repost.php:50 views/b2s/repost.php:87
-#: includes/B2S/Post/Item.php:784 includes/B2S/Settings/Item.php:266
+#: includes/B2S/Post/Item.php:791 includes/B2S/Settings/Item.php:266
 #: includes/B2S/Settings/Item.php:289
 msgid "Image Post"
 msgstr ""
@@ -2007,7 +2034,7 @@ msgstr ""
 
 #: views/b2s/post.calendar.php:74 views/b2s/post.sched.php:194
 #: views/b2s/repost.php:50 views/b2s/repost.php:87
-#: includes/B2S/Network/Item.php:751 includes/B2S/Network/Item.php:754
+#: includes/B2S/Network/Item.php:771 includes/B2S/Network/Item.php:774
 #: includes/B2S/Settings/Item.php:252 views/b2s/html/footer.php:177
 msgid "Image with frame"
 msgstr ""
@@ -2077,7 +2104,7 @@ msgstr ""
 #: includes/B2S/PostBox.php:253 views/b2s/network.php:48 views/b2s/ship.php:80
 #: views/b2s/ship.php:170 views/b2s/ship.php:262
 #: includes/B2S/AutoPost/Item.php:110 includes/B2S/AutoPost/Item.php:207
-#: includes/B2S/Curation/View.php:73 includes/B2S/Network/Item.php:211
+#: includes/B2S/Curation/View.php:73 includes/B2S/Network/Item.php:222
 #: includes/B2S/RePost/Item.php:159 includes/B2S/RePost/Item.php:180
 #: includes/B2S/Ship/Item.php:1143
 msgid "Info"
@@ -2110,7 +2137,7 @@ msgstr ""
 msgid "Inspect Post"
 msgstr ""
 
-#: includes/Loader.php:911
+#: includes/Loader.php:923
 #, php-format
 msgid ""
 "Instagram published your post without text. Please see the following <a "
@@ -2146,7 +2173,7 @@ msgstr ""
 msgid "Ireland"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:913
+#: includes/B2S/Post/Item.php:921
 msgid "is currently being processed by the network"
 msgstr ""
 
@@ -2154,7 +2181,7 @@ msgstr ""
 msgid "is determined automatically"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:830
+#: includes/B2S/Post/Item.php:837
 #, php-format
 msgid "is waiting to shared by %s"
 msgstr ""
@@ -2203,7 +2230,7 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:911
+#: includes/B2S/Post/Item.php:919
 #, php-format
 msgid "last modified by %s"
 msgstr ""
@@ -2214,7 +2241,7 @@ msgstr ""
 msgid "Last Name"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:556
+#: includes/B2S/Post/Item.php:563
 msgid "last saved"
 msgstr ""
 
@@ -2222,8 +2249,8 @@ msgstr ""
 msgid "Last shared"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:419 includes/B2S/Post/Item.php:517
-#: includes/B2S/Post/Item.php:565
+#: includes/B2S/Post/Item.php:419 includes/B2S/Post/Item.php:524
+#: includes/B2S/Post/Item.php:572
 msgid "last shared on social media"
 msgstr ""
 
@@ -2231,12 +2258,12 @@ msgstr ""
 msgid "Latest Posts"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:457
+#: includes/B2S/Post/Item.php:464
 #, php-format
 msgid "latest share by %s"
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:416
+#: includes/B2S/Ship/Save.php:417
 msgid "Learn how it works"
 msgstr ""
 
@@ -2284,14 +2311,14 @@ msgstr ""
 msgid "Licensing"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:751 includes/B2S/Network/Item.php:754
+#: includes/B2S/Network/Item.php:771 includes/B2S/Network/Item.php:774
 #: includes/B2S/Ship/Item.php:1008 includes/B2S/Ship/Item.php:1010
 msgid "Link"
 msgstr ""
 
 #: views/b2s/curation.php:45 views/b2s/post.calendar.php:74
 #: views/b2s/post.sched.php:194 views/b2s/repost.php:50 views/b2s/repost.php:87
-#: includes/B2S/Post/Item.php:782 includes/B2S/Settings/Item.php:252
+#: includes/B2S/Post/Item.php:789 includes/B2S/Settings/Item.php:252
 #: includes/B2S/Settings/Item.php:289 views/b2s/html/footer.php:160
 msgid "Link Post"
 msgstr ""
@@ -2317,11 +2344,11 @@ msgstr ""
 msgid "Load data..."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:745 includes/B2S/Network/Item.php:766
+#: includes/B2S/Network/Item.php:765 includes/B2S/Network/Item.php:786
 msgid "Load default settings"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:435 includes/B2S/Post/Item.php:578
+#: includes/B2S/Post/Item.php:435 includes/B2S/Post/Item.php:585
 msgid "load Draft"
 msgstr ""
 
@@ -2340,6 +2367,10 @@ msgstr ""
 #: views/b2s/ship.php:609 views/b2s/ship.php:778 views/b2s/support.php:144
 #: views/b2s/support.php:182 views/prg/html/header.php:86
 msgid "Loading..."
+msgstr ""
+
+#: includes/Loader.php:898
+msgid "Location"
 msgstr ""
 
 #: views/b2s/network.php:389 views/b2s/ship.php:618
@@ -2400,7 +2431,7 @@ msgstr ""
 msgid "minutes"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:864
+#: includes/B2S/Network/Item.php:884
 msgid ""
 "Missing PHP \"mbstring\" extension to use the character limit function. "
 "Please activate server-side the PHP \"mbstring\" extension in your \"php."
@@ -2488,11 +2519,11 @@ msgstr ""
 msgid "My Profile"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:67 includes/B2S/Network/Item.php:217
+#: includes/B2S/Network/Item.php:68 includes/B2S/Network/Item.php:228
 msgid "My profile"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:559 views/prg/html/form.php:84
+#: includes/B2S/Network/Item.php:579 views/prg/html/form.php:84
 #: views/prg/html/form.php:86 views/prg/html/form.php:161
 #: views/prg/html/form.php:163
 msgid "Name"
@@ -2547,8 +2578,8 @@ msgstr ""
 msgid "Network does not support image for profiles"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:827 includes/B2S/Network/Item.php:884
-#: includes/B2S/Network/Item.php:920
+#: includes/B2S/Network/Item.php:847 includes/B2S/Network/Item.php:904
+#: includes/B2S/Network/Item.php:940
 msgid "Network limit"
 msgstr ""
 
@@ -2557,7 +2588,7 @@ msgstr ""
 msgid "Network settings"
 msgstr ""
 
-#: includes/Loader.php:978 includes/Loader.php:1047
+#: includes/Loader.php:990 includes/Loader.php:1059
 msgid "Networks"
 msgstr ""
 
@@ -2578,7 +2609,7 @@ msgstr ""
 msgid "newest first"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:481 includes/B2S/Post/Item.php:601
+#: includes/B2S/Post/Item.php:488 includes/B2S/Post/Item.php:608
 #, php-format
 msgid "next share by %s"
 msgstr ""
@@ -2716,7 +2747,7 @@ msgid "on Blog"
 msgstr ""
 
 #: views/b2s/ship.php:59 includes/B2S/Post/Item.php:437
-#: includes/B2S/Post/Item.php:580
+#: includes/B2S/Post/Item.php:587
 msgid "on blog"
 msgstr ""
 
@@ -2729,7 +2760,7 @@ msgstr ""
 msgid "Open Graph and Twitter Card Tags"
 msgstr ""
 
-#: includes/Loader.php:1581 includes/Loader.php:1602 includes/Loader.php:1856
+#: includes/Loader.php:1593 includes/Loader.php:1614 includes/Loader.php:1868
 msgid "or"
 msgstr ""
 
@@ -2765,10 +2796,7 @@ msgid "own period"
 msgstr ""
 
 #: includes/Loader.php:890 includes/B2S/AutoPost/Item.php:252
-#: includes/B2S/Network/Item.php:190 includes/B2S/Network/Item.php:190
-#: includes/B2S/Network/Item.php:190 includes/B2S/Network/Item.php:327
-#: includes/B2S/Network/Item.php:673 includes/B2S/Ship/Portale.php:39
-#: includes/B2S/Ship/Portale.php:39
+#: includes/B2S/Network/Item.php:693
 msgid "Page"
 msgstr ""
 
@@ -2780,9 +2808,8 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:170 includes/B2S/Network/Item.php:257
-#: includes/B2S/Network/Item.php:671 includes/B2S/Ship/Item.php:331
-#: includes/B2S/Ship/Navbar.php:90 includes/B2S/Ship/Portale.php:43
+#: includes/B2S/Network/Item.php:691 includes/B2S/Ship/Item.php:331
+#: includes/B2S/Ship/Navbar.php:90
 msgid "Personal"
 msgstr ""
 
@@ -2948,7 +2975,7 @@ msgid ""
 "guide</a>."
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:429
+#: includes/B2S/Ship/Save.php:430
 msgid ""
 "Please note: You post has to be marked as public to be posted in a group."
 msgstr ""
@@ -2993,7 +3020,7 @@ msgstr ""
 msgid "Please re-authorize your account with Blog2Social and try again"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:746 includes/B2S/Ship/Save.php:463
+#: includes/B2S/Post/Item.php:753 includes/B2S/Ship/Save.php:464
 msgid "Please see"
 msgstr ""
 
@@ -3013,12 +3040,12 @@ msgstr ""
 msgid "Please select your correct server location and connect again."
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:434
+#: includes/B2S/Ship/Save.php:435
 msgid "Please share your post now"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:248 includes/B2S/Network/Item.php:318
-#: includes/B2S/Network/Item.php:389 includes/B2S/Ship/Image.php:31
+#: includes/B2S/Network/Item.php:259 includes/B2S/Network/Item.php:332
+#: includes/B2S/Network/Item.php:406 includes/B2S/Ship/Image.php:31
 msgid "please upgrade"
 msgstr ""
 
@@ -3064,7 +3091,7 @@ msgstr ""
 msgid "Post Format"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:780 includes/B2S/Ship/Item.php:340
+#: includes/B2S/Post/Item.php:787 includes/B2S/Ship/Item.php:340
 msgid "post format"
 msgstr ""
 
@@ -3134,15 +3161,15 @@ msgid ""
 "publish your post."
 msgstr ""
 
-#: includes/Loader.php:981 includes/Loader.php:1061
+#: includes/Loader.php:993 includes/Loader.php:1073
 msgid "PR-Service"
 msgstr ""
 
-#: includes/Loader.php:985 includes/Loader.php:1077
+#: includes/Loader.php:997 includes/Loader.php:1089
 msgid "PREMIUM"
 msgstr ""
 
-#: includes/Loader.php:985
+#: includes/Loader.php:997
 msgid "Premium"
 msgstr ""
 
@@ -3154,15 +3181,15 @@ msgstr ""
 msgid "Press"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:946 includes/B2S/Network/Item.php:998
-#: includes/B2S/Network/Item.php:1067 includes/B2S/Network/Item.php:1119
-#: includes/B2S/Network/Item.php:1153 includes/B2S/Network/Item.php:1204
-#: includes/B2S/Network/Item.php:1234 includes/B2S/Network/Item.php:1288
-#: includes/B2S/Network/Item.php:1307 includes/B2S/Network/Item.php:1341
-#: includes/B2S/Network/Item.php:1357 includes/B2S/Network/Item.php:1378
-#: includes/B2S/Network/Item.php:1394 includes/B2S/Network/Item.php:1410
-#: includes/B2S/Network/Item.php:1429 includes/B2S/Network/Item.php:1445
-#: includes/B2S/Network/Item.php:1488
+#: includes/B2S/Network/Item.php:966 includes/B2S/Network/Item.php:1018
+#: includes/B2S/Network/Item.php:1087 includes/B2S/Network/Item.php:1139
+#: includes/B2S/Network/Item.php:1173 includes/B2S/Network/Item.php:1224
+#: includes/B2S/Network/Item.php:1254 includes/B2S/Network/Item.php:1308
+#: includes/B2S/Network/Item.php:1327 includes/B2S/Network/Item.php:1361
+#: includes/B2S/Network/Item.php:1377 includes/B2S/Network/Item.php:1398
+#: includes/B2S/Network/Item.php:1414 includes/B2S/Network/Item.php:1430
+#: includes/B2S/Network/Item.php:1449 includes/B2S/Network/Item.php:1465
+#: includes/B2S/Network/Item.php:1508
 msgid "Preview"
 msgstr ""
 
@@ -3177,12 +3204,12 @@ msgid "Privacy Policy"
 msgstr ""
 
 #: views/b2s/curation.php:51 views/b2s/curation.php:52 views/b2s/network.php:41
-#: includes/B2S/Network/Item.php:181 includes/B2S/Network/Item.php:190
-#: includes/B2S/Network/Item.php:195 includes/B2S/Ship/Image.php:96
+#: includes/B2S/Network/Item.php:185 includes/B2S/Network/Item.php:198
+#: includes/B2S/Network/Item.php:206 includes/B2S/Ship/Image.php:96
 #: includes/B2S/Ship/Item.php:500 includes/B2S/Ship/Item.php:561
 #: includes/B2S/Ship/Item.php:776 includes/B2S/Ship/Item.php:830
-#: includes/B2S/Ship/Portale.php:32 includes/B2S/Ship/Portale.php:39
-#: includes/B2S/Ship/Portale.php:51
+#: includes/B2S/Ship/Portale.php:37 includes/B2S/Ship/Portale.php:48
+#: includes/B2S/Ship/Portale.php:63
 msgid "PRO"
 msgstr ""
 
@@ -3195,12 +3222,7 @@ msgid "Product"
 msgstr ""
 
 #: includes/Loader.php:890 includes/B2S/AutoPost/Item.php:252
-#: includes/B2S/Network/Item.php:170 includes/B2S/Network/Item.php:172
-#: includes/B2S/Network/Item.php:175 includes/B2S/Network/Item.php:179
-#: includes/B2S/Network/Item.php:181 includes/B2S/Network/Item.php:257
-#: includes/B2S/Network/Item.php:671 includes/B2S/Ship/Portale.php:43
-#: includes/B2S/Ship/Portale.php:45 includes/B2S/Ship/Portale.php:47
-#: includes/B2S/Ship/Portale.php:51
+#: includes/B2S/Network/Item.php:185 includes/B2S/Network/Item.php:691
 msgid "Profile"
 msgstr ""
 
@@ -3208,8 +3230,7 @@ msgstr ""
 msgid "Profiles | Pages | Groups"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:194 includes/B2S/Network/Item.php:398
-#: includes/B2S/Ship/Navbar.php:90 includes/B2S/Ship/Portale.php:31
+#: includes/Loader.php:894 includes/B2S/Ship/Navbar.php:90
 msgid "Publication"
 msgstr ""
 
@@ -3227,7 +3248,7 @@ msgstr ""
 
 #: views/b2s/curation.php:138 views/b2s/post.calendar.php:42
 #: views/b2s/ship.php:18 views/b2s/ship.php:779 includes/B2S/Post/Filter.php:59
-#: includes/B2S/Post/Item.php:381 includes/B2S/Ship/Save.php:442
+#: includes/B2S/Post/Item.php:381 includes/B2S/Ship/Save.php:443
 #: includes/PRG/Post/Filter.php:37 includes/PRG/Post/Item.php:86
 msgid "published"
 msgstr ""
@@ -3252,11 +3273,11 @@ msgstr ""
 msgid "Rate it!"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:730 includes/B2S/Post/Item.php:892
+#: includes/B2S/Post/Item.php:737 includes/B2S/Post/Item.php:900
 msgid "Re-Share"
 msgstr ""
 
-#: includes/B2S/Post/Filter.php:71 includes/B2S/Post/Item.php:798
+#: includes/B2S/Post/Filter.php:71 includes/B2S/Post/Item.php:805
 msgid "re-share"
 msgstr ""
 
@@ -3270,7 +3291,7 @@ msgid "Re-share this Post"
 msgstr ""
 
 #: views/b2s/curation.php:131 views/b2s/ship.php:264 views/b2s/ship.php:266
-#: includes/B2S/Post/Item.php:454
+#: includes/B2S/Post/Item.php:461
 msgid "Re-share this post"
 msgstr ""
 
@@ -3290,7 +3311,7 @@ msgstr ""
 msgid "Recently Used"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:884 includes/B2S/Network/Item.php:920
+#: includes/B2S/Network/Item.php:904 includes/B2S/Network/Item.php:940
 msgid "recommended length"
 msgstr ""
 
@@ -3374,8 +3395,8 @@ msgstr ""
 msgid "resolve conflict"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:730 includes/B2S/Post/Item.php:892
-#: includes/B2S/Ship/Save.php:452
+#: includes/B2S/Post/Item.php:737 includes/B2S/Post/Item.php:900
+#: includes/B2S/Ship/Save.php:453
 msgid "Retweet"
 msgstr ""
 
@@ -3416,7 +3437,7 @@ msgid "Save"
 msgstr ""
 
 #: views/b2s/network.php:248 views/b2s/settings.php:70
-#: includes/B2S/Network/Item.php:587 includes/B2S/Settings/Item.php:146
+#: includes/B2S/Network/Item.php:607 includes/B2S/Settings/Item.php:146
 msgid "save"
 msgstr ""
 
@@ -3447,7 +3468,7 @@ msgstr ""
 msgid "save..."
 msgstr ""
 
-#: includes/B2S/Post/Item.php:536
+#: includes/B2S/Post/Item.php:543
 msgid "saved"
 msgstr ""
 
@@ -3539,12 +3560,12 @@ msgstr ""
 msgid "Scheduled Auto-Posting"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:918
+#: includes/B2S/Post/Item.php:926
 #, php-format
 msgid "scheduled by %s"
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:453
+#: includes/B2S/Ship/Save.php:454
 msgid "scheduled on"
 msgstr ""
 
@@ -3561,7 +3582,7 @@ msgstr ""
 msgid "scheduled posts"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:481 includes/B2S/Post/Item.php:601
+#: includes/B2S/Post/Item.php:488 includes/B2S/Post/Item.php:608
 #: views/b2s/widgets/activity.php:10
 msgid "scheduled social media posts"
 msgstr ""
@@ -3608,8 +3629,8 @@ msgstr ""
 msgid "Select all"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:736 includes/B2S/Post/Item.php:827
-#: includes/B2S/Post/Item.php:898 includes/B2S/RePost/Item.php:135
+#: includes/B2S/Post/Item.php:743 includes/B2S/Post/Item.php:834
+#: includes/B2S/Post/Item.php:906 includes/B2S/RePost/Item.php:135
 msgid "select all"
 msgstr ""
 
@@ -3743,8 +3764,8 @@ msgid ""
 "pages and custom post types on your social media channels."
 msgstr ""
 
-#: includes/Loader.php:839 includes/Loader.php:979 includes/Loader.php:979
-#: includes/Loader.php:1053 includes/B2S/RePost/Item.php:25
+#: includes/Loader.php:839 includes/Loader.php:991 includes/Loader.php:991
+#: includes/Loader.php:1065 includes/B2S/RePost/Item.php:25
 #: views/b2s/html/sidebar.php:137
 msgid "Settings"
 msgstr ""
@@ -3754,7 +3775,7 @@ msgstr ""
 msgid "Share"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:860 includes/B2S/Ship/Save.php:433
+#: includes/B2S/Post/Item.php:868 includes/B2S/Ship/Save.php:434
 msgid "share"
 msgstr ""
 
@@ -3806,9 +3827,9 @@ msgstr ""
 msgid "Share on multiple profiles, pages and groups"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:431 includes/B2S/Post/Item.php:528
-#: includes/B2S/Post/Item.php:530 includes/B2S/Post/Item.php:551
-#: includes/B2S/Post/Item.php:574
+#: includes/B2S/Post/Item.php:431 includes/B2S/Post/Item.php:535
+#: includes/B2S/Post/Item.php:537 includes/B2S/Post/Item.php:558
+#: includes/B2S/Post/Item.php:581
 msgid "Share on Social Media"
 msgstr ""
 
@@ -3830,7 +3851,7 @@ msgstr ""
 msgid "share up to"
 msgstr ""
 
-#: includes/Loader.php:975
+#: includes/Loader.php:987
 msgid "Share Website & Blog Content"
 msgstr ""
 
@@ -3866,7 +3887,7 @@ msgstr ""
 msgid "Shared"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:761
+#: includes/B2S/Post/Item.php:768
 #, php-format
 msgid "shared by %s"
 msgstr ""
@@ -3880,7 +3901,7 @@ msgstr ""
 msgid "Shared Posts"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:457
+#: includes/B2S/Post/Item.php:464
 msgid "shared social media posts"
 msgstr ""
 
@@ -3892,7 +3913,7 @@ msgstr ""
 msgid "Sharing"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:761
+#: includes/B2S/Post/Item.php:768
 #, php-format
 msgid "sharing in progress by %s"
 msgstr ""
@@ -3922,7 +3943,7 @@ msgstr ""
 msgid "Shortext"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:739
+#: includes/B2S/Post/Item.php:746
 msgid "show"
 msgstr ""
 
@@ -3930,7 +3951,7 @@ msgstr ""
 msgid "Show activity starting from"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:66
+#: includes/B2S/Network/Item.php:67
 msgid "Show all"
 msgstr ""
 
@@ -3966,7 +3987,7 @@ msgstr ""
 msgid "Sign in to Pinterest"
 msgstr ""
 
-#: includes/Loader.php:975 includes/Loader.php:1026
+#: includes/Loader.php:987 includes/Loader.php:1038
 msgid "Site & Blog Content"
 msgstr ""
 
@@ -3976,12 +3997,12 @@ msgstr ""
 
 #: views/b2s/network.php:236 views/b2s/ship.php:27
 #: includes/B2S/AutoPost/Item.php:33 includes/B2S/Curation/View.php:56
-#: includes/B2S/Network/Item.php:179 includes/B2S/Network/Item.php:188
-#: includes/B2S/Network/Item.php:198 includes/B2S/Network/Item.php:299
-#: includes/B2S/Network/Item.php:369 includes/B2S/Network/Item.php:435
+#: includes/B2S/Network/Item.php:183 includes/B2S/Network/Item.php:196
+#: includes/B2S/Network/Item.php:209 includes/B2S/Network/Item.php:313
+#: includes/B2S/Network/Item.php:386 includes/B2S/Network/Item.php:455
 #: includes/B2S/RePost/Item.php:23 includes/B2S/Settings/Item.php:172
 #: includes/B2S/Ship/Image.php:89 includes/B2S/Ship/Item.php:1202
-#: includes/B2S/Ship/Portale.php:37 views/b2s/html/post.navbar.php:18
+#: includes/B2S/Ship/Portale.php:46 views/b2s/html/post.navbar.php:18
 #: views/b2s/html/post.navbar.php:21 views/b2s/html/post.navbar.php:23
 #: views/b2s/partials/post-edit-modal.php:9 views/b2s/widgets/posts.php:18
 msgid "SMART"
@@ -4028,12 +4049,12 @@ msgstr ""
 msgid "Social Media Post Drafts"
 msgstr ""
 
-#: includes/Loader.php:976 includes/Loader.php:1033 views/b2s/curation.php:257
+#: includes/Loader.php:988 includes/Loader.php:1045 views/b2s/curation.php:257
 #: views/b2s/curation.php:332
 msgid "Social Media Posts"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:503
+#: includes/B2S/Post/Item.php:510
 msgid "social media posts ready to be shared"
 msgstr ""
 
@@ -4125,6 +4146,10 @@ msgstr ""
 msgid "submit"
 msgstr ""
 
+#: includes/Loader.php:896
+msgid "Subreddit"
+msgstr ""
+
 #: views/b2s/widgets/newsletter.php:10
 msgid "subscribe"
 msgstr ""
@@ -4133,7 +4158,7 @@ msgstr ""
 msgid "Subtitle"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:615
+#: includes/B2S/Network/Item.php:635
 msgid "Successfully saved"
 msgstr ""
 
@@ -4269,7 +4294,7 @@ msgid ""
 "webmaster, if this error message persists."
 msgstr ""
 
-#: includes/Loader.php:896
+#: includes/Loader.php:908
 #, php-format
 msgid ""
 "The connection to your social media account is interrupted. Please check "
@@ -4282,7 +4307,7 @@ msgstr ""
 msgid "The content of your post"
 msgstr ""
 
-#: includes/Loader.php:894
+#: includes/Loader.php:906
 #, php-format
 msgid ""
 "The content of your post could not be approved by the network. Please see "
@@ -4334,11 +4359,11 @@ msgid ""
 "first image detected on your page. The image links to your blog post."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:813
+#: includes/B2S/Network/Item.php:833
 msgid "The link will be added automatically at the end of the post."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:811
+#: includes/B2S/Network/Item.php:831
 msgid ""
 "The link will be transmitted as a canonical link, i.e. in the source code of "
 "your page, in order to refer to the original source of the content and to "
@@ -4360,32 +4385,32 @@ msgstr ""
 msgid "The name of the post author."
 msgstr ""
 
-#: includes/Loader.php:902
+#: includes/Loader.php:914
 #, php-format
 msgid ""
 "The network can not publish special characters such as Emoji. Please see the "
 "following <a target=\"_blank\" href=\"%s\">guide</a>."
 msgstr ""
 
-#: includes/Loader.php:892
+#: includes/Loader.php:904
 #, php-format
 msgid ""
 "The network could not publish your post. Please see the following <a "
 "target=\"_blank\" href=\"%s\">guide</a>."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:818
+#: includes/B2S/Network/Item.php:838
 msgid "The network does not support hashtags."
 msgstr ""
 
-#: includes/Loader.php:899
+#: includes/Loader.php:911
 #, php-format
 msgid ""
 "The network has blocked your account. Please see the following <a "
 "target=\"_blank\" href=\"%s\">guide</a>."
 msgstr ""
 
-#: includes/Loader.php:904
+#: includes/Loader.php:916
 msgid "The network requires a public url."
 msgstr ""
 
@@ -4395,7 +4420,7 @@ msgid ""
 "image format and will display your standard image instead."
 msgstr ""
 
-#: includes/Loader.php:900
+#: includes/Loader.php:912
 #, php-format
 msgid ""
 "The number of images is reached. Please see the following <a "
@@ -4414,7 +4439,7 @@ msgstr ""
 msgid "The parameters could not be saved. Please try again."
 msgstr ""
 
-#: includes/B2S/Calendar/Item.php:534 includes/B2S/Post/Item.php:750
+#: includes/B2S/Calendar/Item.php:534 includes/B2S/Post/Item.php:757
 #, php-format
 msgid ""
 "The post cannot be published due to changes on the Instagram interface. More "
@@ -4536,7 +4561,7 @@ msgid ""
 "edited by users with admin rights only."
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:418 includes/B2S/Ship/Save.php:426
+#: includes/B2S/Ship/Save.php:419 includes/B2S/Ship/Save.php:427
 msgid "This is how it works:"
 msgstr ""
 
@@ -4560,7 +4585,7 @@ msgstr ""
 msgid "This post will be shared on social media in 2-3 minutes!"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:822
+#: includes/B2S/Network/Item.php:842
 msgid ""
 "This social network displays the predefined hashtags as clickable tags at "
 "the end of your post."
@@ -4574,7 +4599,7 @@ msgstr ""
 msgid "This user has reached the maximum number of connections."
 msgstr ""
 
-#: includes/Loader.php:907
+#: includes/Loader.php:919
 msgid ""
 "This XING API is no longer supported by XING. Please connect your XING "
 "accounts with the new XING interface to reschedule your posts."
@@ -4660,8 +4685,8 @@ msgid ""
 "href=\"%s\" target=\"_blank\">Info</a>)"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:248 includes/B2S/Network/Item.php:318
-#: includes/B2S/Network/Item.php:389
+#: includes/B2S/Network/Item.php:259 includes/B2S/Network/Item.php:332
+#: includes/B2S/Network/Item.php:406
 msgid "To reactivate this connection,"
 msgstr ""
 
@@ -4669,7 +4694,7 @@ msgstr ""
 msgid "To select an individual image from your media library,"
 msgstr ""
 
-#: includes/Loader.php:909
+#: includes/Loader.php:921
 msgid "To share social media posts on Reddit or Diigo, a link is required."
 msgstr ""
 
@@ -4762,8 +4787,8 @@ msgid "Unknown error has occurred. Please try again."
 msgstr ""
 
 #: includes/Ajax/Post.php:1955 views/b2s/network.php:13
-#: includes/B2S/Network/Item.php:255 includes/B2S/Network/Item.php:325
-#: includes/B2S/Network/Item.php:396 includes/B2S/Network/Item.php:526
+#: includes/B2S/Network/Item.php:266 includes/B2S/Network/Item.php:339
+#: includes/B2S/Network/Item.php:413 includes/B2S/Network/Item.php:546
 msgid "Unknown username"
 msgstr ""
 
@@ -4824,11 +4849,11 @@ msgstr ""
 msgid "Upgrade to Blog2Social PREMIUM PRO"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:661
+#: includes/B2S/Network/Item.php:681
 msgid "Upgrade to Blog2Social Smart"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:660
+#: includes/B2S/Network/Item.php:680
 msgid ""
 "Upgrade to Blog2Social Smart or higher to customize your individual post "
 "templates that will automatically pre-format the structure of your social "
@@ -4930,7 +4955,7 @@ msgstr ""
 msgid "Validate directly on Twitter"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:560
+#: includes/B2S/Network/Item.php:580
 msgid "Value"
 msgstr ""
 
@@ -4938,7 +4963,7 @@ msgstr ""
 msgid "Version"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:514
+#: includes/B2S/Post/Item.php:521
 msgid "via Browser-Extension"
 msgstr ""
 
@@ -4950,7 +4975,7 @@ msgstr ""
 msgid "View schedule posts"
 msgstr ""
 
-#: includes/B2S/Ship/Save.php:443
+#: includes/B2S/Ship/Save.php:444
 msgid "view social media post"
 msgstr ""
 
@@ -4969,7 +4994,7 @@ msgid ""
 "duplicate posts."
 msgstr ""
 
-#: includes/Loader.php:895
+#: includes/Loader.php:907
 msgid ""
 "We don't have the permission to publish your post. Please check your "
 "authorization."
@@ -5366,7 +5391,7 @@ msgstr ""
 msgid "You don't have a Business License"
 msgstr ""
 
-#: includes/Loader.php:906
+#: includes/Loader.php:918
 msgid "You have already retweeted this post."
 msgstr ""
 
@@ -5458,18 +5483,18 @@ msgid ""
 "network? Click here."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:190 includes/B2S/Ship/Portale.php:39
+#: includes/B2S/Network/Item.php:198 includes/B2S/Ship/Portale.php:48
 msgid "You want to connect a network page?"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:175 includes/B2S/Network/Item.php:179
-#: includes/B2S/Network/Item.php:181 includes/B2S/Network/Item.php:188
-#: includes/B2S/Ship/Portale.php:37 includes/B2S/Ship/Portale.php:47
-#: includes/B2S/Ship/Portale.php:51
+#: includes/B2S/Network/Item.php:179 includes/B2S/Network/Item.php:183
+#: includes/B2S/Network/Item.php:185 includes/B2S/Network/Item.php:196
+#: includes/B2S/Ship/Portale.php:46 includes/B2S/Ship/Portale.php:59
+#: includes/B2S/Ship/Portale.php:63
 msgid "You want to connect a network profile?"
 msgstr ""
 
-#: includes/B2S/Network/Item.php:195 includes/B2S/Ship/Portale.php:32
+#: includes/B2S/Network/Item.php:206 includes/B2S/Ship/Portale.php:37
 msgid "You want to connect a social media group?"
 msgstr ""
 
@@ -5493,15 +5518,15 @@ msgstr ""
 msgid "You want to define a new combination of networks?"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:794 includes/B2S/Post/Item.php:807
+#: includes/B2S/Post/Item.php:801 includes/B2S/Post/Item.php:814
 msgid "You want to delete a publish post entry?"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:868
+#: includes/B2S/Post/Item.php:876
 msgid "You want to delete your Social Media post?"
 msgstr ""
 
-#: includes/B2S/Post/Item.php:923
+#: includes/B2S/Post/Item.php:931
 msgid "You want to edit your scheduled post?"
 msgstr ""
 
@@ -5562,7 +5587,7 @@ msgstr ""
 msgid "Your authorization has been removed successfully."
 msgstr ""
 
-#: includes/Loader.php:893
+#: includes/Loader.php:905
 msgid ""
 "Your authorization has expired. Please reconnect your account in the "
 "Blog2Social network settings."
@@ -5576,7 +5601,7 @@ msgstr ""
 msgid "Your blog post is not yet published on your Wordpress!"
 msgstr ""
 
-#: includes/Loader.php:905
+#: includes/Loader.php:917
 msgid ""
 "Your blog post was not available for the network at the time of publishing."
 msgstr ""
@@ -5611,12 +5636,12 @@ msgstr ""
 msgid "Your daily limit for posting automatically has been reached."
 msgstr ""
 
-#: includes/Loader.php:901
+#: includes/Loader.php:913
 msgid ""
 "Your daily limit for this network has been reached. Please try again later."
 msgstr ""
 
-#: includes/Loader.php:897
+#: includes/Loader.php:909
 msgid "Your daily limit has been reached."
 msgstr ""
 
@@ -5636,7 +5661,7 @@ msgstr ""
 msgid "Your free trial of Blog2Social PREMIUM has ended."
 msgstr ""
 
-#: includes/Loader.php:912
+#: includes/Loader.php:924
 msgid "Your group can not be found by the network."
 msgstr ""
 
@@ -5662,27 +5687,27 @@ msgstr ""
 msgid "Your message will now be sent over PR gateway to the press portals!"
 msgstr ""
 
-#: includes/Loader.php:910
+#: includes/Loader.php:922
 msgid ""
 "Your post could not be posted, because your image can not be processed by "
 "the network."
 msgstr ""
 
-#: includes/Loader.php:898
+#: includes/Loader.php:910
 msgid ""
 "Your post could not be posted, because your image is not available or the "
 "image source does not allow to publish"
 msgstr ""
 
-#: includes/B2S/Calendar/Item.php:536 includes/B2S/Post/Item.php:752
-#: includes/B2S/Ship/Save.php:467
+#: includes/B2S/Calendar/Item.php:536 includes/B2S/Post/Item.php:759
+#: includes/B2S/Ship/Save.php:468
 #, php-format
 msgid ""
 "Your post could not be posted. More information in this <a href=\"%s\" "
 "target=\"_blank\">Instagram troubleshoot checklist</a>."
 msgstr ""
 
-#: includes/Loader.php:903
+#: includes/Loader.php:915
 msgid "Your post is a duplicate."
 msgstr ""
 
@@ -5701,7 +5726,7 @@ msgstr ""
 msgid "Your profile was saved successful."
 msgstr ""
 
-#: includes/B2S/Network/Item.php:69
+#: includes/B2S/Network/Item.php:70
 msgid "Your profiles:"
 msgstr ""
 

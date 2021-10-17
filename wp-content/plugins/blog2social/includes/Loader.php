@@ -888,6 +888,18 @@ class B2S_Loader {
     public function defineText() {
         define('B2S_PLUGIN_PAGE_TITLE', serialize(array('blog2social-notice' => esc_html__('Notifications', 'blog2social'), 'blog2social-publish' => esc_html__('Shared Posts', 'blog2social'), 'blog2social-approve' => esc_html__('Instant Sharing', 'blog2social'), 'blog2social-draft-post' => esc_html__('Drafts', 'blog2social'), 'blog2social-sched' => esc_html__('Scheduled Posts', 'blog2social'), 'blog2social-curation-draft' => esc_html__('Social Media Post Drafts', 'blog2social'), 'blog2social-favorites' => esc_html__('Favorites', 'blog2social'), 'blog2social-autopost' => esc_html__('Auto-Post', 'blog2social'), 'blog2social-repost' => esc_html__('Re-Share Posts', 'blog2social') . ' <span class="label label-success label-sm">' . esc_html__("NEW", "blog2social") . '</span>')));
         define('B2S_PLUGIN_NETWORK_TYPE', serialize(array(esc_html__('Profile', 'blog2social'), esc_html__('Page', 'blog2social'), esc_html__('Group', 'blog2social'))));
+        define('B2S_PLUGIN_NETWORK_TYPE_INDIVIDUAL', serialize(array(
+            4 => array(0 => __('Blog', 'blog2social')),
+            6 => array(0 => __('Board', 'blog2social')),
+            11 => array(2 => __('Publication', 'blog2social')),
+            12 => array(1 => __('Business', 'blog2social')),
+            15 => array(0 => __('Subreddit', 'blog2social')),
+            17 => array(2 => __('Community', 'blog2social')),
+            18 => array(0 => __('Location', 'blog2social')),
+            19 => array(1 => __('Employer Branding', 'blog2social')),
+            24 => array(0 => __('Channel', 'blog2social')),
+            25 => array(0 => __('Blog', 'blog2social')),
+        )));
         define('B2S_PLUGIN_NETWORK_KIND', serialize(array(esc_html__('Company-Page (Employer Branding Profile)', 'blog2social'), esc_html__('Business', 'blog2social'), '', '', esc_html__('Company-Page (Employer Branding Profile)', 'blog2social'))));
         define('B2S_PLUGIN_NETWORK_ERROR', serialize(array('DEFAULT' => sprintf(__('The network could not publish your post. Please see the following <a target="_blank" href="%s">guide</a>.', 'blog2social'), esc_url(B2S_Tools::getSupportLink('share_error'))),
             'TOKEN' => esc_html__('Your authorization has expired. Please reconnect your account in the Blog2Social network settings.', 'blog2social'),

@@ -34,10 +34,10 @@ $networkData = $networkItem->getData();
                                     <?php echo $networkItem->getSelectMandantHtml($networkData['mandanten']); ?>
                                     <div class="form-group b2s-network-mandant-area">
                                         <?php if (B2S_PLUGIN_USER_VERSION > 1) { ?>
-                                            <button href="#" class="btn btn-primary btn-sm b2s-network-add-mandant-btn">
+                                            <button href="#" class="btn btn-default btn-sm b2s-network-add-mandant-btn">
                                                 <span class="glyphicon glyphicon-plus"></span> <?php esc_html_e('Create new network collection', 'blog2social') ?> <span class="label label-success"></button>
                                         <?php } else { ?>
-                                            <button href="#" class="btn btn-primary btn-sm b2s-btn-disabled b2sProFeatureModalBtn" data-type="create-network-profile" data-title="<?php esc_html_e('You want to define a new combination of networks?', 'blog2social') ?>">
+                                            <button href="#" class="btn btn-default btn-sm b2s-btn-disabled b2sProFeatureModalBtn" data-type="create-network-profile" data-title="<?php esc_html_e('You want to define a new combination of networks?', 'blog2social') ?>">
                                                 <span class="glyphicon glyphicon-plus"></span> <?php esc_html_e('Create new network collection', 'blog2social') ?> <span class="label label-success"> <?php esc_html_e("PRO", "blog2social") ?></span></button>
                                         <?php } ?>
 
@@ -49,9 +49,9 @@ $networkData = $networkItem->getData();
                                     </div>
                                     <div class="form-group b2s-network-time-manager-area pull-right hidden-xs">
                                         <?php if (B2S_PLUGIN_USER_VERSION > 0) { ?>
-                                            <a href="#" class="btn btn-primary btn-sm b2s-get-settings-sched-time-default">
+                                            <a href="#" class="btn btn-default btn-sm b2s-get-settings-sched-time-default">
                                             <?php } else { ?>
-                                                <a href="#" class="btn btn-primary btn-sm b2s-btn-disabled" data-title = "<?php esc_html_e('You want to schedule your posts and use the Best Time Scheduler?', 'blog2social') ?>" data-toggle ="modal" data-target ="#b2sInfoSchedTimesModal">
+                                                <a href="#" class="btn btn-default btn-sm b2s-btn-disabled" data-title = "<?php esc_html_e('You want to schedule your posts and use the Best Time Scheduler?', 'blog2social') ?>" data-toggle ="modal" data-target ="#b2sInfoSchedTimesModal">
                                                 <?php } ?>  <span class="glyphicon glyphicon-time"></span> <?php esc_html_e('Load Best Times', 'blog2social'); ?></a>
                                     </div>
                                 </div>

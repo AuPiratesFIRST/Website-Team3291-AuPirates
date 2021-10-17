@@ -444,6 +444,13 @@ class B2S_Post_Item {
                 $countPublish = $this->getPostCount($var->ID);
                 $lastPublish = $this->getLastPost($var->ID);
                 $userInfoName = get_the_author_meta('display_name', $lastPublish['user']);
+                
+                $addCurationFormat = '';
+                if(strtolower($var->post_type) == 'b2s_ex_post') {
+                    $guid = get_the_guid($var->ID);
+                    $addCurationFormat = ((stripos($guid, 'b2s_ex_post') != false) ? '&b2sPostType=ex&postFormat=1' : '&b2sPostType=ex&postFormat=0');
+                }
+                
                 $this->postItem .= '<li class="list-group-item">
                                         <div class="media">
                                             <img class="post-img-10 pull-left hidden-xs" src="' . plugins_url('/assets/images/b2s/' . $postType . '-icon.png', B2S_PLUGIN_FILE) . '" alt="posttype">
@@ -451,7 +458,7 @@ class B2S_Post_Item {
                                                     <div class="pull-left media-nav">
                                                             <strong><a target="_blank" href="' . esc_url(get_permalink($var->ID)) . '">' . esc_html($postTitle) . '</a></strong>' . $curated . '
                                                         <span class="pull-right">
-                                                        <a class="btn btn-primary hidden-xs btn-sm" href="admin.php?page=blog2social-ship&postId=' . $var->ID . '">' . esc_html__('Re-share this post', 'blog2social') . '</a>
+                                                        <a class="btn btn-primary hidden-xs btn-sm" href="admin.php?page=blog2social-ship&postId=' . $var->ID . $addCurationFormat . '">' . esc_html__('Re-share this post', 'blog2social') . '</a>
                                                             <button type="button" class="btn btn-primary btn-sm b2sDetailsPublishPostBtn" data-search-date="' . esc_attr($this->searchShowByDate) . '" data-post-id="' . esc_attr($var->ID) . '"><i class="glyphicon glyphicon-chevron-down"></i> ' . esc_html__('Details', 'blog2social') . '</button>
                                                         </span>
                                                         <p class="info hidden-xs"><a class="b2sDetailsPublishPostTriggerLink" href="#"><span class="b2s-publish-count" data-post-id="' . esc_attr($var->ID) . '">' . esc_html($countPublish) . '</span> ' . esc_html__('shared social media posts', 'blog2social') . '</a> | ' . sprintf(esc_html__('latest share by %s', 'blog2social'), '<a href="' . esc_url(get_author_posts_url($lastPublish['user'])) . '">' . esc_html((!empty($userInfoName) ? $userInfoName : '-')) . '</a>') . ' ' . esc_html(B2S_Util::getCustomDateFormat($lastPublish['date'], substr(B2S_LANGUAGE, 0, 2))) . '</p>
@@ -844,7 +851,8 @@ class B2S_Post_Item {
                         'internal_post_id' => $var->id,
                         'network_id' => $var->network_id,
                         'network_auth_id' => $var->network_auth_id,
-                        'network_type' => $var->network_type
+                        'network_type' => $var->network_type,
+                        'language' => substr(B2S_LANGUAGE, 0, 2)
                     );
 
                     if ($var->sched_data != null && !empty($var->sched_data)) {

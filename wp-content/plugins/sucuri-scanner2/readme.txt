@@ -1,10 +1,10 @@
 === Sucuri Security - Auditing, Malware Scanner and Security Hardening ===
-Contributors: dd@sucuri.net
+Contributors: dscalzo@godaddy.com
 Donate Link: https://sucuri.net/
 Tags: malware, security, firewall, scan, spam, virus, sucuri, protection, blocklist, detection, hardening, file integrity
 Requires at least: 3.6
 Tested up to: 5.8
-Stable tag: 1.8.28
+Stable tag: 1.8.30
 
 The Sucuri WordPress Security plugin is a security toolset for security integrity monitoring, malware detection and security hardening.
 
@@ -12,7 +12,8 @@ The Sucuri WordPress Security plugin is a security toolset for security integrit
 
 Sucuri Inc. is a globally recognized authority in all matters related to website security, with specialization in WordPress Security.
 
-The Sucuri Security WordPress plugin is free to all WordPress users. It is a security suite meant to complement your existing security posture. It offers its users a set of security features for their website, each designed to have a positive effect on their security posture:
+The Sucuri Security WordPress plugin is free to all WordPress users. It is a security suite meant to complement your existing security posture. Currently the ownership of this plugin was transferred to GoDaddy.
+It offers its users a set of security features for their website, each designed to have a positive effect on their security posture:
 
 * Security Activity Auditing
 * File Integrity Monitoring
@@ -189,6 +190,12 @@ We take your privacy seriously. For free plugin users without an API key, no inf
 This version adds an option to refresh the malware scan results on demand, as well as several small bug fixes and improvements.
 
 == Changelog ==
+= 1.8.30 =
+* Bump version
+
+= 1.8.29 =
+* Changed ownership
+
 = 1.8.28 =
 * Silence fopen warning
 

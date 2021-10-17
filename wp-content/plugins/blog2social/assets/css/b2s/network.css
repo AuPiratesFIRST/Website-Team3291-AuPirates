@@ -888,3 +888,7 @@ ul.b2s-network-item-auth-list li:last-child{
 .b2s-edit-template-preview-like-icons-4 {
     float: right;
 }
+
+.b2s-edit-template-btn {
+    background-color: #eee !important;
+}
