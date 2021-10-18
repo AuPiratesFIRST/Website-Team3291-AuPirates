@@ -1,0 +1,25 @@
+{
+  "name": "aupirates",
+  "version": "1.0.0",
+  "description": "Team 3291 website",
+  "main": "wp-content/themes/pirate-bones/gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pcrobotics2/Team3291_Website.git"
+  },
+  "author": "DeWayne Cameron <firesbane13@hotmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pcrobotics2/Team3291_Website/issues"
+  },
+  "homepage": "https://github.com/pcrobotics2/Team3291_Website#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-sass": "^5.0.0",
+    "sass": "^1.43.2"
+  }
+}
