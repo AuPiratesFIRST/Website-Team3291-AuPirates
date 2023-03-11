@@ -2,7 +2,11 @@
 /* Data */
 require_once (B2S_PLUGIN_DIR . 'includes/B2S/Post/Filter.php');
 require_once (B2S_PLUGIN_DIR . 'includes/Util.php');
-$b2sShowByDate = isset($_GET['b2sShowByDate']) ? trim($_GET['b2sShowByDate']) : "";
+require_once(B2S_PLUGIN_DIR . 'includes/Options.php');
+$b2sShowByDate = isset($_GET['b2sShowByDate']) ? trim(sanitize_text_field(wp_unslash($_GET['b2sShowByDate']))) : "";
+$options = new B2S_Options(B2S_PLUGIN_BLOG_USER_ID);
+$optionPostFilters = $options->_getOption('post_filters');
+$postsPerPage = (isset($optionPostFilters['postsPerPage']) && (int) $optionPostFilters['postsPerPage'] > 0) ? (int) $optionPostFilters['postsPerPage'] : 25;
 ?>
 
 <div>
@@ -22,10 +26,10 @@ $b2sShowByDate = isset($_GET['b2sShowByDate']) ? trim($_GET['b2sShowByDate']) : 
                 <!-- Filter Post Start-->
                 <form class="b2sSortForm form-inline pull-left" action="#">
                     <input id="b2sType" type="hidden" value="all" name="b2sType">
-                    <input id="b2sShowByDate" type="hidden" value="<?php echo $b2sShowByDate; ?>" name="b2sShowByDate">
+                    <input id="b2sShowByDate" type="hidden" value="<?php echo esc_attr($b2sShowByDate); ?>" name="b2sShowByDate">
                     <input id="b2sPagination" type="hidden" value="0" name="b2sPagination">
                     <input id="b2sShowPagination" type="hidden" value="0" name="b2sShowPagination">
-                    <input id="b2sPostsPerPage" type="hidden" value="3" name="b2sPostsPerPage">
+                    <input id="b2sPostsPerPage" type="hidden" value="<?php echo esc_attr($postsPerPage); ?>" name="b2sPostsPerPage">
                 </form>
                 <!-- Filter Post Ende-->
                 <br>
@@ -71,5 +75,5 @@ $b2sShowByDate = isset($_GET['b2sShowByDate']) ? trim($_GET['b2sShowByDate']) : 
     </div>
 </div>
 
-<input type="hidden" id="b2sLang" value="<?php echo substr(B2S_LANGUAGE, 0, 2); ?>">
-<input type="hidden" id="b2sUserLang" value="<?php echo strtolower(substr(get_locale(), 0, 2)); ?>">
+<input type="hidden" id="b2sLang" value="<?php echo esc_attr(substr(B2S_LANGUAGE, 0, 2)); ?>">
+<input type="hidden" id="b2sUserLang" value="<?php echo esc_attr(strtolower(substr(get_locale(), 0, 2))); ?>">

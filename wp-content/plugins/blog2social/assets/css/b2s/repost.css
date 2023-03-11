@@ -589,3 +589,12 @@ textarea.form-control {
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
 }
+
+.b2s-format-area-tumblr-image, .b2s-format-area-tumblr-link {
+    margin-top: 10px;
+}
+
+.b2s-post-item-message-info {
+    margin-left: 15px !important;
+    font-weight: 600;
+}

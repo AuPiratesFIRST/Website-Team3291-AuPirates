@@ -5,7 +5,7 @@ require_once B2S_PLUGIN_DIR . 'includes/Tools.php';
 require_once B2S_PLUGIN_DIR . 'includes/Options.php';
 $options = new B2S_Options(B2S_PLUGIN_BLOG_USER_ID);
 $optionUserTimeFormat = $options->_getOption('user_time_format');
-if($optionUserTimeFormat == false) {
+if ($optionUserTimeFormat == false) {
     $optionUserTimeFormat = (substr(B2S_LANGUAGE, 0, 2) == 'de') ? 0 : 1;
 }
 $b2sSiteUrl = get_option('siteurl') . ((substr(get_option('siteurl'), -1, 1) == '/') ? '' : '/');
@@ -17,6 +17,7 @@ $networkData = $networkItem->getData();
 
 <div class="b2s-container">
     <div class=" b2s-inbox col-md-12 del-padding-left">
+        <?php require_once (B2S_PLUGIN_DIR . 'views/b2s/html/sidebar.php'); ?>
         <div class="col-md-9 del-padding-left del-padding-right">
             <!--Header|Start - Include-->
             <?php require_once (B2S_PLUGIN_DIR . 'views/b2s/html/header.php'); ?>
@@ -26,12 +27,56 @@ $networkData = $networkItem->getData();
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-md-12">
+                        <div class="row">
+                            <ul class="nav nav-pills">
+                                <li><a href="#isSocial" class="b2s-network-tab" data-type="isSocial" data-toggle="tab"><?php esc_html_e('Social Media Networks', 'blog2social') ?></a></li>
+                                <li><a href="#isVideo" class="b2s-network-tab" data-type="isVideo" data-toggle="tab"><?php esc_html_e('Video Networks', 'blog2social') ?> <span class="label label-success"><?php esc_html_e('NEW', 'blog2social') ?></span></a></li>
+                            </ul>
+                            <hr class="b2s-settings-line">
+                        </div>
+
+                        <?php if (!defined('B2S_PLUGIN_ADDON_VIDEO_TRIAL_END_DATE')) { ?>
+                            <div class="alert alert-status isVideoInfo" style="display: none;">
+                                <h4><span class="label label-success"><?php esc_html_e('NEW', 'blog2social') ?></span> <?php esc_html_e("Try the Blog2Social Video-Addon:", "blog2social") ?></h4>
+                                <span class="glyphicon glyphicon-ok glyphicon-success"></span> <?php esc_html_e('Publish and share your videos from your media gallery on video platforms and social networks', 'blog2social') ?><br>
+                                <span class="glyphicon glyphicon-ok glyphicon-success"></span> <?php esc_html_e('Blog2Social automatically turns the metadata from your media gallery into a video title and description', 'blog2social') ?><br>
+                                <span class="glyphicon glyphicon-ok glyphicon-success"></span> <?php esc_html_e('Optionally, edit and add your video title and description for each platform individually', 'blog2social') ?><br>
+                                <span class="glyphicon glyphicon-ok glyphicon-success"></span> <?php esc_html_e('Publish and share your video files across all selected social accounts', 'blog2social') ?><br>  
+                                <br>
+                                <?php if (B2S_PLUGIN_USER_VERSION == 0) { ?>
+                                    <h5><?php esc_html_e("And get access to all Premium Version features:", "blog2social") ?></h5>
+                                    <p>
+                                        <?php esc_html_e("Auto-post, auto-schedule, automatically re-share, create your own post-templates, and manage and share all your website posts and other content from text, links, images, or videos across all your social media accounts.", "blog2social") ?>
+                                    </p>
+                                    <br>
+                                    <a target="_blank" href="<?php echo esc_url(B2S_Tools::getSupportLink('addon_video_trial')); ?>" class="btn btn-success"><?php esc_html_e('Start your free 30-days-trial of Blog2Social Premium & Video-Addon (no payment information needed)', 'blog2social') ?></a>
+                                <?php } else { ?>
+                                    <a class="btn btn-success" href="admin.php?page=blog2social-video"><?php esc_html_e('Click here to unlock the new video feature', 'blog2social') ?></a>
+                                <?php } ?>
+                            </div>
+                        <?php } ?>
+
+                        
                         <div class="b2s-post">
                             <div class="grid-body">
                                 <div class="hidden-lg hidden-md hidden-sm filterShow"><a href="#" onclick="showFilter('show');return false;"><i class="glyphicon glyphicon-chevron-down"></i> <?php esc_html_e('filter', 'blog2social') ?></a></div>
                                 <div class="hidden-lg hidden-md hidden-sm filterHide"><a href="#" onclick="showFilter('hide');return false;"><i class="glyphicon glyphicon-chevron-up"></i> <?php esc_html_e('filter', 'blog2social') ?></a></div>
                                 <div class="form-inline" role="form">
-                                    <?php echo $networkItem->getSelectMandantHtml($networkData['mandanten']); ?>
+                                    <?php
+                                    echo wp_kses($networkItem->getSelectMandantHtml($networkData['mandanten']), array(
+                                        'select' => array(
+                                            'class' => array()
+                                        ),
+                                        'optgroup' => array(
+                                            'label' => array(),
+                                            'id' => array(),
+                                        ),
+                                        'option' => array(
+                                            'value' => array(),
+                                            'selected' => array()
+                                        )
+                                    ));
+                                    ?>
                                     <div class="form-group b2s-network-mandant-area">
                                         <?php if (B2S_PLUGIN_USER_VERSION > 1) { ?>
                                             <button href="#" class="btn btn-default btn-sm b2s-network-add-mandant-btn">
@@ -44,8 +89,8 @@ $networkData = $networkItem->getData();
                                         <button href="#" class="btn btn-danger btn-sm b2s-network-mandant-btn-delete" style="display:none;">
                                             <span class="glyphicon glyphicon-trash"></span> <?php esc_html_e('Delete', 'blog2social') ?>
                                         </button>
-                                        
-                                        <a target="_blank" href="<?php echo B2S_Tools::getSupportLink('network_mandant') ?>"><?php esc_html_e('Info', 'blog2social') ?></a>
+
+                                        <a target="_blank" href="<?php echo esc_url(B2S_Tools::getSupportLink('network_mandant')) ?>"><?php esc_html_e('Info', 'blog2social') ?></a>
                                     </div>
                                     <div class="form-group b2s-network-time-manager-area pull-right hidden-xs">
                                         <?php if (B2S_PLUGIN_USER_VERSION > 0) { ?>
@@ -59,7 +104,87 @@ $networkData = $networkItem->getData();
                             </div>
                         </div>
                         <div class="row b2s-network-auth-area">
-                            <?php echo $networkItem->getPortale($networkData['mandanten'], $networkData['auth'], $networkData['portale'], $networkData['auth_count'], $networkData['addon_count']); ?>
+                            <?php
+                            echo wp_kses($networkItem->getPortale($networkData['mandanten'], $networkData['auth'], $networkData['portale'], $networkData['auth_count'], $networkData['addon_count']), array(
+                                'div' => array(
+                                    'class' => array(),
+                                    'data-b2s-auth-info' => array(),
+                                ),
+                                'form' => array(
+                                    'id' => array(),
+                                    'method' => array(),
+                                ),
+                                'input' => array(
+                                    'id' => array(),
+                                    'type' => array(),
+                                    'value' => array(),
+                                    'name' => array(),
+                                    'class' => array(),
+                                    'readonly' => array(),
+                                    'data-network-auth-id' => array(),
+                                    'data-network-mandant-id' => array(),
+                                    'data-network-id' => array(),
+                                    'data-network-type' => array(),
+                                    'data-network-container-mandant-id' => array(),
+                                ),
+                                'ul' => array(
+                                    'class' => array(),
+                                    'data-mandant-id' => array(),
+                                    'style' => array(),
+                                    'data-network-id' => array(),
+                                    'data-network-count' => array(),
+                                    'data-network-mandant-id' => array(),
+                                ),
+                                'li' => array(
+                                    'class' => array(),
+                                    'data-network-id' => array(),
+                                    'data-network-mandant-id' => array(),
+                                    'data-view' => array(),
+                                    'data-network-auth-id' => array(),
+                                    'data-network-type' => array(),
+                                ),
+                                'img' => array(
+                                    'class' => array(),
+                                    'alt' => array(),
+                                    'src' => array(),
+                                ),
+                                'h4' => array(),
+                                'a' => array(
+                                    'href' => array(),
+                                    'target' => array(),
+                                    'class' => array(),
+                                    'onclick' => array(),
+                                    'data-title' => array(),
+                                    'data-type' => array(),
+                                    'data-network-type' => array(),
+                                    'data-network-id' => array(),
+                                    'data-network-auth-id' => array(),
+                                    'data-network-mandant-id' => array(),
+                                    'data-modal-title' => array(),
+                                    'data-connection-owner' => array(),
+                                    'data-auth-method' => array(),
+                                ),
+                                'span' => array(
+                                    'class' => array(),
+                                    'data-network-count-trigger' => array(),
+                                    'data-network-id' => array(),
+                                    'data-network-mandant-id' => array(),
+                                    'data-network-auth-id' => array(),
+                                    'style' => array(),
+                                ),
+                                'i' => array(
+                                    'class' => array(),
+                                ),
+                                'button' => array(
+                                    'class' => array(),
+                                    'data-b2s-auth-url' => array(),
+                                    'data-title' => array(),
+                                    'data-type' => array(),
+                                    'onclick' => array(),
+                                    'data-network-id' => array(),
+                                ),
+                            ));
+                            ?>
                         </div>
                         <div class="row b2s-loading-area width-100" style="display: none">
                             <div class="b2s-loader-impulse b2s-loader-impulse-md"></div>
@@ -74,10 +199,9 @@ $networkData = $networkItem->getData();
                 </div>
             </div>
         </div>
-        <?php require_once (B2S_PLUGIN_DIR . 'views/b2s/html/sidebar.php'); ?>
     </div>
 </div>
-<input type="hidden" id="lang" value="<?php echo substr(B2S_LANGUAGE, 0, 2); ?>">
+<input type="hidden" id="lang" value="<?php echo esc_attr(substr(B2S_LANGUAGE, 0, 2)); ?>">
 
 <div class="modal fade" id="b2s-network-add-mandant" tabindex="-1" role="dialog" aria-labelledby="b2s-network-add-mandant" aria-hidden="true" data-backdrop="false"  style="display:none;">
     <div class="modal-dialog" role="document">
@@ -124,13 +248,13 @@ $networkData = $networkItem->getData();
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="b2s-modal-close close" data-modal-name="#b2sInfoNetwork18" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title"><?php esc_html_e('Google My Business', 'blog2social') ?></h4>
+                <h4 class="modal-title"><?php esc_html_e('Google Business Profile', 'blog2social') ?></h4>
             </div>
             <div class="modal-body">
-                <?php esc_html_e('Blog2Social uses the official Google My Business API to share your content on your business listing. You can connect Google My Business listings with up to nine different locations to Blog2Social and you can choose which location you want to share your content on.', 'blog2social'); ?>
+                <?php esc_html_e('Blog2Social uses the official Google Business Profile API to share your content on your business listing. You can connect Google Business Profile listings with up to nine different locations to Blog2Social and you can choose which location you want to share your content on.', 'blog2social'); ?>
                 <br>
                 <br>
-                <?php esc_html_e('Google currently allows access to the API for all companies with up to 9 locations in their Google My Business Listings. However, Google plans to extend the API for companies with more than 9 locations in their Google My Business listings.', 'blog2social'); ?>
+                <?php esc_html_e('Google currently allows access to the API for all companies with up to 9 locations in their Google Business Profile Listings. However, Google plans to extend the API for companies with more than 9 locations in their Google Business Profile listings.', 'blog2social'); ?>
                 <br>
                 <br>
                 <a href="https://developers.google.com/my-business/content/posts-data#faqs" target="_blank"><?php esc_html_e('Learn more', 'blog2social'); ?></a>
@@ -217,22 +341,25 @@ $networkData = $networkItem->getData();
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="b2s-modal-close close" data-modal-name="#b2s-edit-template" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-1" alt="Facebook" src="<?php echo plugins_url('/assets/images/portale/1_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-2" alt="Twitter" src="<?php echo plugins_url('/assets/images/portale/2_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-3" alt="LinkedIn" src="<?php echo plugins_url('/assets/images/portale/3_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-4" alt="Tumblr" src="<?php echo plugins_url('/assets/images/portale/4_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-6" alt="Pinterest" src="<?php echo plugins_url('/assets/images/portale/6_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-7" alt="Flickr" src="<?php echo plugins_url('/assets/images/portale/7_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-9" alt="Diigo" src="<?php echo plugins_url('/assets/images/portale/9_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-11" alt="Medium" src="<?php echo plugins_url('/assets/images/portale/11_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-12" alt="Instagram" src="<?php echo plugins_url('/assets/images/portale/12_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-14" alt="Torial" src="<?php echo plugins_url('/assets/images/portale/14_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-15" alt="Reddit" src="<?php echo plugins_url('/assets/images/portale/15_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-16" alt="Bloglovin" src="<?php echo plugins_url('/assets/images/portale/16_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-17" alt="VKontakte" src="<?php echo plugins_url('/assets/images/portale/17_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-18" alt="Google My Business" src="<?php echo plugins_url('/assets/images/portale/18_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-19" alt="Xing" src="<?php echo plugins_url('/assets/images/portale/19_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
-                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-24" alt="Telegram" src="<?php echo plugins_url('/assets/images/portale/24_flat.png', B2S_PLUGIN_FILE); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-1" alt="Facebook" src="<?php echo esc_url(plugins_url('/assets/images/portale/1_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-2" alt="Twitter" src="<?php echo esc_url(plugins_url('/assets/images/portale/2_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-3" alt="LinkedIn" src="<?php echo esc_url(plugins_url('/assets/images/portale/3_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-4" alt="Tumblr" src="<?php echo esc_url(plugins_url('/assets/images/portale/4_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-6" alt="Pinterest" src="<?php echo esc_url(plugins_url('/assets/images/portale/6_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-7" alt="Flickr" src="<?php echo esc_url(plugins_url('/assets/images/portale/7_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-9" alt="Diigo" src="<?php echo esc_url(plugins_url('/assets/images/portale/9_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-11" alt="Medium" src="<?php echo esc_url(plugins_url('/assets/images/portale/11_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-12" alt="Instagram" src="<?php echo esc_url(plugins_url('/assets/images/portale/12_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-14" alt="Torial" src="<?php echo esc_url(plugins_url('/assets/images/portale/14_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-15" alt="Reddit" src="<?php echo esc_url(plugins_url('/assets/images/portale/15_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-16" alt="Bloglovin" src="<?php echo esc_url(plugins_url('/assets/images/portale/16_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-17" alt="VKontakte" src="<?php echo esc_url(plugins_url('/assets/images/portale/17_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-18" alt="Google Business Profile" src="<?php echo esc_url(plugins_url('/assets/images/portale/18_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-19" alt="Xing" src="<?php echo esc_url(plugins_url('/assets/images/portale/19_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-24" alt="Telegram" src="<?php echo esc_url(plugins_url('/assets/images/portale/24_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-25" alt="Blogger" src="<?php echo esc_url(plugins_url('/assets/images/portale/25_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-26" alt="Ravelry" src="<?php echo esc_url(plugins_url('/assets/images/portale/26_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
+                <img class="pull-left hidden-xs b2s-img-network b2s-edit-template-network-img" id="b2s-edit-template-network-img-27" alt="Instapaper" src="<?php echo esc_url(plugins_url('/assets/images/portale/27_flat.png', B2S_PLUGIN_FILE)); ?>" style="display: none;">
                 <h4 class="modal-title b2s-edit-template-title"><?php esc_html_e('Edit Post Template', 'blog2social') ?></h4> <?php echo ((B2S_PLUGIN_USER_VERSION == 0) ? '<span class="label label-success">' . esc_html__('SMART', 'blog2social') . '</span>' : '') ?>
             </div>
             <div class="row b2s-loading-area width-100">
@@ -328,118 +455,6 @@ $networkData = $networkItem->getData();
                 <div class="b2s-info-character-limit-text"><?php esc_html_e('Define the character limit for the variables "EXCERPT" and "CONTENT" individually. Your text will be shortened after the last comma, period, or space character within your character limit.', 'blog2social') ?></div>
                 <div class="b2s-info-character-limit-text"><?php esc_html_e('An "EXCERPT" will only be added to your social media post if you have added a manual excerpt in the excerpt editing box of the Gutenberg side menu (document settings) of your post.', 'blog2social') ?></div>
                 <div class="b2s-info-character-limit-text"><?php esc_html_e('"TITLES" and "KEYWORDS" (Hashtags) are not shortened. If you select the "TITLE" and "KEYWORD" variables for your social media posts, the character limit you define for the "EXCERPT" and/or "CONTENT" variables will be applied within the remaining available character limit of the social network.', 'blog2social') ?></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="b2sAuthNetwork6Modal" tabindex="-1" role="dialog" aria-labelledby="b2sAuthNetwork6Modal" aria-hidden="true" data-backdrop="false"  style="display:none;">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="b2s-modal-close close" data-modal-name="#b2sAuthNetwork6Modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title"><?php esc_html_e('Connect with Pinterest', 'blog2social') ?></h4>
-            </div>
-            <div class="modal-body b2s-auth-network-6-extension-info-area" style="display: none;">
-                <div class="row width-100">
-                    <div class="col-md-12">
-                        <div class="alert alert-danger b2s-auth-network-6-extension-error" data-info="default"><?php esc_html_e('The login failed. To connect your Pinterest account to Blog2Social, please sign in to Pinterest using the Blog2Social browser extension.', 'blog2social'); ?></div>
-                        <h3>1. <?php esc_html_e('Download and activate the Blog2Social extension', 'blog2social'); ?></h3>
-                        <div class="b2s-auth-network-6-extension-download-area">
-                            <a class="b2s-auth-network-6-extension-download-link" href="https://addons.mozilla.org/en-US/firefox/addon/blog2social/" target="_blank"><img src="<?php echo plugins_url('/assets/images/firefox-extension.png', B2S_PLUGIN_FILE); ?>"></a>
-                            <a class="b2s-auth-network-6-extension-download-link" href="https://chrome.google.com/webstore/detail/blog2social-social-media/hobhidjecjjgknjpnclnmfgkajdjlaml" target="_blank"><img src="<?php echo plugins_url('/assets/images/chrome-extension.png', B2S_PLUGIN_FILE); ?>"></a>
-                        </div>
-                        <h3>2. <?php esc_html_e('Click on "continue"', 'blog2social'); ?></h3>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-body b2s-auth-network-6-extension-start-area" style="display: none;">
-                <div class="row width-100">
-                    <div class="col-md-12">
-                        <div class="alert alert-danger b2s-auth-network-6-extension-error" data-info="default"><?php esc_html_e('The login failed. To connect your Pinterest account to Blog2Social, please sign in to Pinterest using the Blog2Social browser extension.', 'blog2social'); ?></div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-body b2s-auth-network-6-extension-success-area width-100" style="display: none;">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="alert alert-danger b2s-auth-network-6-extension-error" data-info="default" style="display:none;"><?php esc_html_e('An error occurred! Please try again.', 'blog2social'); ?></div>
-                        <div class="alert alert-success b2s-auth-network-6-info-extension" data-info="success"><?php esc_html_e('Login up successful. Please confirm that Blog2Social is allowed to publish on your profile.', 'blog2social'); ?></div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 b2s-login-form-label"><?php esc_html_e('Select Pinboard', 'blog2social'); ?></label>
-                    <div class="col-md-9">
-                        <select id="b2s-auth-network-6-board-extension" class="form-control valid" aria-invalid="false"></select>
-                    </div>
-                </div>
-            </div>
-            <div class="row b2s-loading-area width-100" style="display: none">
-                <div class="b2s-loader-impulse b2s-loader-impulse-md"></div>
-                <div class="clearfix"></div>
-                <?php esc_html_e('Loading...', 'blog2social') ?>
-            </div>
-            <div class="modal-body b2s-auth-network-6-login-area">
-                <div class="alert alert-info"><?php esc_html_e('Please make sure to use your original Pinterest login data (email and password). Social Login via Facebook or Google login data will not work here. Please also check if the two-factor authentication in Pinterest is deactivated to ensure a stable connection to Blog2Social.', 'blog2social'); ?></div>
-                <div class="alert alert-danger b2s-auth-network-6-info" data-info="default" style="display:none;"><?php esc_html_e('An error occurred! Please try again.', 'blog2social'); ?></div>
-                <div class="alert alert-danger b2s-auth-network-6-info" data-info="version" style="display:none;"><?php sprintf(__('You want to connect an additional account? <a target="_blank" href="%s">Upgrade to Blog2Social Premium</a>', 'blog2social'), B2S_Tools::getSupportLink('affiliate')); ?></div>
-                <div class="alert alert-danger b2s-auth-network-6-info" data-info="limit" style="display:none;"><?php echo sprintf(__('You want to connect an additional account? <a target="_blank" href="%s">Upgrade to Blog2Social Premium</a>', 'blog2social'), B2S_Tools::getSupportLink('affiliate')); ?></div>
-                <div class="alert alert-danger b2s-auth-network-6-info" data-info="invalid" style="display:none;"><?php esc_html_e('Invalid Data! Please try again.', 'blog2social'); ?></div>
-                <div class="alert alert-danger b2s-auth-network-6-info" data-info="board" style="display:none;"><?php echo esc_html_e('You have not yet created any pinboards in your Pinterest account. Please set up at least one pinboard to pin on your Pinterest account!', 'blog2social'); ?></div>
-                <div class="alert alert-danger b2s-auth-network-6-info" data-info="login" style="display:none;"><?php echo sprintf(__('Login failed. Please check your login data for typos and please check your Pinterest settings, if the two-factor authentication is turned off for this account: <a target="_blank" href="%s">%s</a>', 'blog2social'), esc_url('https://www.pinterest.com/settings/security/'), esc_url('https://www.pinterest.com/settings/security/')); ?></div>
-                <div class="alert alert-danger b2s-auth-network-6-info" data-info="access" style="display:none;"><?php esc_html_e('Pinterest has rejected the connection to your blog', 'blog2social'); ?></div>
-                <div class="alert alert-danger b2s-auth-network-6-info" data-info="http_request_failed" style="display:none;"><?php esc_html_e('Please select your correct server location and connect again.', 'blog2social'); ?></div>
-                <div class="alert alert-danger b2s-auth-network-6-info" data-info="error_code_403" style="display:none;"><?php esc_html_e('Access to this resource on your server is denied! Please check your webserver configuration for caching.', 'blog2social'); ?></div>
-                <div class="alert alert-success b2s-auth-network-6-info" data-info="success" style="display:none;"><?php esc_html_e('Login up successful. Please confirm that Blog2Social is allowed to publish on your profile.', 'blog2social'); ?></div>
-                <div class="form-group row">
-                    <label class="col-md-3 b2s-login-form-label"><?php esc_html_e('E-Mail', 'blog2social'); ?></label>
-                    <div class="col-md-9">
-                        <input class="form-control username" required="true" type="text" placeholder="" id="b2s-auth-network-6-username" aria-required="true">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 b2s-login-form-label"><?php esc_html_e('Password', 'blog2social'); ?></label>
-                    <div class="input-group col-md-9" style="padding-left: 15px; padding-right: 15px;">
-                        <input class="form-control password" required="true" type="password" placeholder="" id="b2s-auth-network-6-password" aria-required="true">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default b2s-auth-network-6-reveal" type="button">
-                                <i class="glyphicon glyphicon-eye-open"></i>
-                            </button>
-                        </span>
-                    </div>    
-                </div>
-                <div class="form-group row">
-                    <label class="col-md-3 b2s-login-form-label"><?php esc_html_e('Server-Location', 'blog2social'); ?></label>
-                    <div class="col-md-9" style="padding-left: 15px; padding-right: 15px;">
-                        <select class="form-control" id="b2s-auth-network-6-location">
-                            <?php
-                            $pinterestCountryList = B2S_Tools::getCountryListByNetwork(6);
-                            foreach ($pinterestCountryList as $key => $name) {
-                                echo '<option value="' . $key . '"' . (($key == '') ? ' selected="selected"' : '') . '>' . $name['name'] . '</option>';
-                            }
-                            ?>
-                        </select>
-                    </div>    
-                </div>
-                <div class="b2s-auth-network-6-board-area" style="display: none;">
-                    <div class="form-group row">
-                        <label class="col-md-3 b2s-login-form-label"><?php esc_html_e('Select Pinboard', 'blog2social'); ?></label>
-                        <div class="col-md-9">
-                            <select id="b2s-auth-network-6-board" class="form-control valid" aria-invalid="false"></select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer b2s-edit-template-footer">
-                <button class="btn btn-success b2s-auth-network-6-login-btn" type="button"><?php esc_html_e('authorize', 'blog2social'); ?></button>
-                <button class="btn btn-success b2s-auth-network-6-confirm-btn" type="button" style="display: none;"><?php esc_html_e('confirm', 'blog2social'); ?></button>
-                <button class="btn btn-success b2s-auth-network-6-extension-auth-btn" type="button" style="display: none;"><?php esc_html_e('Sign in to Pinterest', 'blog2social'); ?></button>
-                <button class="btn btn-success b2s-auth-network-6-confirm-extension-btn" type="button" style="display: none;"><?php esc_html_e('confirm', 'blog2social'); ?></button>
-                <button class="btn btn-success b2s-auth-network-6-extension-continue-btn" type="button" disabled="disabled" style="display: none;"><?php esc_html_e('continue', 'blog2social'); ?></button>
-                <input type="hidden" id="b2s-auth-network-6-ident-data">
-                <input type="hidden" id="b2s-auth-network-6-username-extension">
-                <input type="hidden" id="b2s-auth-network-6-auth-id">
-                <input type="hidden" id="b2s-auth-network-6-mandant-id">
             </div>
         </div>
     </div>
@@ -672,7 +687,16 @@ $networkData = $networkItem->getData();
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <?php echo sprintf(__('Please note: Your Instagram Business Account will be connected with Blog2Social via Facebook. Therefore, please make sure that your Instagram Business Account is linked to a Facebook page and enter the corresponding login data. You will find more information and detailed instructions in the <a href="%s" target="_blank">Instagram Business guide</a>.', 'blog2social'), esc_url(B2S_Tools::getSupportLink('instagram_business_auth_faq'))); ?>
+                        <?php esc_html_e('Please note: In order to connect your Instagram account to Blog2Social, please ensure the following:', 'blog2social') ?>
+                        <br>
+                        <?php esc_html_e('1. Your Instagram account is set to "Business" and not "Creator".', 'blog2social') ?>
+                        <br>
+                        <?php esc_html_e('2. Your Instagram account is linked to a Facebook page.', 'blog2social') ?>
+                        <br>
+                        <?php esc_html_e('3. Blog2Social has the permission to publish your posts.', 'blog2social') ?>
+                        <br>
+                        <br>
+                        <?php echo sprintf(__('You will find more information and detailed instructions in the <a href="%s" target="_blank">Instagram Business guide</a>.', 'blog2social'), esc_url(B2S_Tools::getSupportLink('instagram_business_auth_faq'))); ?>
                         <button class="btn btn-primary pull-right b2s-add-network-continue-btn"><?php esc_html_e('Continue', 'blog2social'); ?></button>
                     </div>
                 </div>
@@ -728,8 +752,12 @@ $networkData = $networkItem->getData();
     </div>
 </div>
 
-<input type="hidden" id="b2sUserLang" value="<?php echo substr(B2S_LANGUAGE, 0, 2); ?>">
-<input type="hidden" id="b2sUserTimeFormat" value="<?php echo $optionUserTimeFormat; ?>">
-<input type="hidden" id="b2sServerUrl" value="<?php echo B2S_PLUGIN_SERVER_URL; ?>">
-<input type="hidden" id="b2sUserVersion" value="<?php echo B2S_PLUGIN_USER_VERSION; ?>">
-<input type="hidden" id="b2s-redirect-url-sched-post" value="<?php echo $b2sSiteUrl . 'wp-admin/admin.php?page=blog2social-sched'; ?>"/>
+<input type="hidden" id="b2sUserLang" value="<?php echo esc_attr(substr(B2S_LANGUAGE, 0, 2)); ?>">
+<input type="hidden" id="b2sUserTimeFormat" value="<?php echo esc_attr($optionUserTimeFormat); ?>">
+<input type="hidden" id="b2sServerUrl" value="<?php echo esc_url(B2S_PLUGIN_SERVER_URL); ?>">
+<input type="hidden" id="b2sUserVersion" value="<?php echo esc_attr(B2S_PLUGIN_USER_VERSION); ?>">
+<input type="hidden" id="b2sNetworkTypeNameOverride" value="<?php echo esc_attr(json_encode(unserialize(B2S_PLUGIN_NETWORK_TYPE_INDIVIDUAL))); ?>">
+<input type="hidden" id="b2sNetworkTypeName" value="<?php echo esc_attr(json_encode(unserialize(B2S_PLUGIN_NETWORK_TYPE))); ?>">
+<input type="hidden" id="b2sDaysName" value="<?php echo esc_attr(esc_html_e('Days', 'blog2social')); ?>">
+<input type="hidden" id="b2sBlogHasUsedVideoAddon" value="<?php echo esc_attr((defined('B2S_PLUGIN_ADDON_VIDEO_TRIAL_END_DATE') ? 1 : 0)); ?>">
+<input type="hidden" id="b2s-redirect-url-sched-post" value="<?php echo esc_url($b2sSiteUrl) . 'wp-admin/admin.php?page=blog2social-sched'; ?>"/>

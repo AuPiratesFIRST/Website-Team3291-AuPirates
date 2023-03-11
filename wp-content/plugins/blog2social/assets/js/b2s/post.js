@@ -81,7 +81,9 @@ jQuery('#b2s-post-ship-item-post-format-modal').on('hidden.bs.modal', function (
 jQuery('#b2s-info-change-meta-tag-modal').on('hidden.bs.modal', function () {
     jQuery('body').addClass('modal-open');
 });
-
+jQuery('#b2sImageZoomModal').on('hidden.bs.modal', function () {
+    jQuery('body').addClass('modal-open');
+});
 
 jQuery(document).on('click', '.b2sDetailsPublishPostBtn', function () {
     var postId = jQuery(this).attr('data-post-id');
@@ -398,6 +400,7 @@ jQuery(document).on('click', '.checkbox-post-sched-all-btn', function () {
         jQuery('.b2s-sched-delete-confirm-btn').prop('disabeld', false);
     }
 });
+
 jQuery(document).on('click', '.b2s-post-sched-area-drop-btn', function () {
     jQuery('#b2s-delete-confirm-post-id').val(jQuery(this).attr('data-post-id'));
     jQuery('#b2s-delete-confirm-post-count').html('1');
@@ -687,7 +690,7 @@ function showEditSchedPost(b2s_id, post_id, network_auth_id, network_type, netwo
         if (typeof network_id != 'undefined' && jQuery.inArray(network_id.toString(), ogMetaNetworks) != -1 && jQuery('#isOgMetaChecked').val() == "1") {
             isMetaChecked = true;
         }
-        if (network_id == "2" && jQuery('#isCardMetaChecked').val() == "1") {
+        if ((network_id == "2" || network_id == "24") && jQuery('#isCardMetaChecked').val() == "1") {
             isMetaChecked = true;
         }
         if (isMetaChecked && jQuery('.b2sNetworkSettingsPostFormatCurrent[data-network-type="' + network_type + '"][data-network-id="' + network_id + '"]').val() == "0") {
@@ -1298,4 +1301,24 @@ jQuery(document).on('click', '.b2s-add-multi-image', function() {
         jQuery(this).parents('.b2s-image-item').find('.b2s-image-item-caption-resolution').html(width + 'x' + height);
     });
     jQuery('#b2s-network-select-image').modal('show');
+});
+
+jQuery(document).on('click', '.b2s-repost-multi', function () {
+    var checkboxes = jQuery('.checkboxes[data-blog-post-id="' + jQuery(this).attr('data-blog-post-id') + '"]:checked');
+    if (checkboxes.length > 0) {
+        var authIds = [];
+        jQuery(checkboxes).each(function (i, selected) {
+            authIds[i] = jQuery(selected).attr('data-network-auth-id');
+        });
+        jQuery(this).attr('href', jQuery(this).attr('href') + '&multi_network_auth_id=' + authIds.join(','))
+    } else {
+        var checkboxes = jQuery('.checkboxes[data-blog-post-id="' + jQuery(this).attr('data-blog-post-id') + '"]');
+        if (checkboxes.length > 0) {
+            var authIds = [];
+            jQuery(checkboxes).each(function (i, selected) {
+                authIds[i] = jQuery(selected).attr('data-network-auth-id');
+            });
+            jQuery(this).attr('href', jQuery(this).attr('href') + '&multi_network_auth_id=' + authIds.join(','))
+        }
+    }
 });
